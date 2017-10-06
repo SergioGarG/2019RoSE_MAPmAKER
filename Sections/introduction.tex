@@ -1,0 +1,61 @@
+Helping designers to engineer robotic systems is one of the timely application areas of software engineering. 
+Designing %good 
+robotic systems requires solving %several 
+numerous problems~\cite{ljungblad2005designing}, such as the selection of the types of the robot to be employed (e.g., humanoid, robotic arm), the analysis of the required robot properties (e.g., emergence, emotional), the analysis of the place in which the robot operates (e.g., on the bus, in a birthday party), the activity the robot has to perform (e.g., move object, reach a location), and the users it has to serve (e.g., taxi driver, rock star). 
+These aspects are then used by designers in the selection of appropriate planners.
+
+A \emph{planner} is  a software component that receives as input a model of the robotic application and computes  a set of actions (a \emph{plan}) that, if performed, allows the achievement of a desired mission~\cite{latombe2012robot}.
+As done in some recent works in the robotics community (see for example~\cite{fainekos2005temporal,kress2007s,kloetzer2008fully,fainekos2009temporal,wongpiromsarn2010receding,bhatia2010sampling,bhatia2010motion}), in this work we assume that 
+a robot application is defined using finite transition systems and
+each robot of the team  has to achieve a mission,  indicated as \emph{local mission}, that is specified as an LTL property. 
+As opposed to more traditional specification means, such as consensus or trajectory tracking in robot control, A-to-B travel in robot motion planning, or STRIPS or PDDL problem formulations in robot task planning, LTL allows us to specify a rich class of temporal goals that include e.g., surveillance, sequencing, safety, or reachability.
+%These are common assumptions made in the definition of planners within the robotic domain (see for example~\cite{fainekos2005temporal,kress2007s,kloetzer2008fully,fainekos2009temporal,wongpiromsarn2010receding,bhatia2010sampling,bhatia2010motion}).
+Several works studied centralized planners that are able to manage \emph{teams} of robots that collaborate to achieve a certain goal (a global mission)~\cite{kloetzer2011multi,loizou2005automated,quottrup2004multi}.
+Others studied how to decompose a global mission into a set of local missions to be achieved by each robot of the team~\cite{schillinger2016decomposition,guo2015multi,guo2015multi,tumova2016multi}. 
+These local missions have been recently exploited by \emph{decentralized} planners~\cite{tumova2016multi}, i.e., planners that instead of evaluating the global mission over the whole team of robots, analyze the satisfaction of local missions inside a subset of the team of robots. 
+In this way, the problem of finding a collective team behavior is decomposed into sub-problems that avoid the expensive fully centralized planning.
+
+Another aspect that current planners must consider is partial knowledge  about the environment in which the robots should operate.
+Partial knowledge in software development has been strongly studied by the  software engineering community.
+For example, partial models have been used to support requirement analysis and elicitation~\cite{menghi2017integrating,menghi2017cover,letier2008deriving}, to help designers in producing a model of the system that satisfies a set of desired properties~\cite{uchitel2009synthesis,uchitel2013supporting,famelis2012partial,albarghouthi2012under} and to verify whether  already designed models possess some properties of interest~\cite{menghi2016dealing,bruns1999model,chechik2004multi}.
+However, most of the existing planners assume that the environment in which the robots are deployed is known~\cite{7139412}. 
+This assumption does not usually hold in real word scenarios~\cite{lahijanian2016iterative}.
+In real world applications it is usually the case that only \emph{partial knowledge} about the environment in which the robots are operating is present.
+This occurs, for example, when the robots navigate in environments affected by natural disasters, where the movement between locations or the execution of specific actions may be impossible due to structural collapses, flooding etc.
+Several works studied planners that work when only partial information about the environment in which the robots operate is available (e.g.,~\cite{roy2006planning,du2012robot,diaz2001exploring}).
+However, %to the best of our knowledge, 
+literature considering \emph{decentralized} planners %have not been applied when 
+with only partial knowledge about the robot application and temporal logic goals
+is rather limited \cite{guo2015multi}.
+% is available .
+
+\textbf{Contribution.}
+This work presents  \toolName\ (Multi-robot plAnner for PArtially Known EnviRonments), a \emph{novel} \emph{decentralized} planner for partially known environments.
+%\toolName\ modifies~\cite{tumova2016multi} by supporting partial knowledge.
+Given a team of robots and a local mission for each robot, \toolName\ partitions the set of robots into classes based on dependencies dictated by the local missions of each robot.
+For each of these classes, it explores the state space of the environment and the models of the robot searching for definitive and possible plans.
+A \emph{definitive plan} is a sequence of actions that ensure the satisfaction of the local mission for each robot.
+A \emph{possible plan} is a sequence of actions that may satisfy the local mission due to some unknown information about the model of the robots or the environment in which they are deployed.
+\toolName\ chooses the plan that allows the achievement of the mission by performing the lower number of actions, but other policies can also be used.
+
+
+\textbf{Specific contributions.} Specific contributions are detailed in the following:
+\begin{enumerate*}
+\item we define the concept of \emph{partial robot model}, which allows the description of the behavior of the robots and its environment when only partial information is available. 
+Specifically, a partial robot model allows considering three types of partial information: partial knowledge about the execution of transitions (possibility of changing the robot location), on service provision (whether the execution of an action succeed in providing a service) and on the meeting capabilities (whether a robot can meet with another);
+%\item we define two possible LTL semantics on paths namely three-valued and thorough path semantics  and prove that  two semantics are particular cases of the more general thorough semantics~\cite{bruns2000model};
+\item we define the concept of local mission satisfaction for partial robot models;
+\item we define the distributed planning problem for partially specified robots;
+\item we propose a distributed planning algorithm and we proved its correctness;
+\item we evaluate the proposed algorithm on a robot application obtained from the RobotCup Logistics League competition~\cite{karrasrobocup} and
+on a robotic application working in an apartment of about 80 m$^2$, which is part of a large residential facility for senior citizens~\cite{map}.
+The results show the effectiveness of the proposed algorithm.
+\end{enumerate*}
+
+\textbf{Organization.} 
+Section~\ref{sec:running} presents our running example.
+Section~\ref{sec:formulation} describes the problem and Section~\ref{sec:planningWithPartialKnowledge} describes how \toolName\ supports partial models.
+Section~\ref{sec:contribution} presents the proposed planning algorithm.
+Section~\ref{sec:evaluation} evaluates the approach.
+Section~\ref{sec:related} presents related work.
+Section~\ref{sec:conclusion} concludes with final remarks and future research directions.
