@@ -1,15 +1,5 @@
 --Explain the tool in detail, maybe including a scope-- (add figure for the tool? maybe in the previous section?)
 
-!!
-\textbf{Contribution.}
-This work presents  \toolName\ (Multi-robot plAnner for PArtially Known EnviRonments), a \emph{novel} \emph{decentralized} planner for partially known environments.
-%\toolName\ modifies~\cite{tumova2016multi} by supporting partial knowledge.
-Given a team of robots and a local mission for each robot, \toolName\ partitions the set of robots into classes based on dependencies dictated by the local missions of each robot.
-For each of these classes, it explores the state space of the environment and the models of the robot searching for definitive and possible plans.
-A \emph{definitive plan} is a sequence of actions that ensure the satisfaction of the local mission for each robot.
-A \emph{possible plan} is a sequence of actions that may satisfy the local mission due to some unknown information about the model of the robots or the environment in which they are deployed.
-\toolName\ chooses the plan that allows the achievement of the mission by performing the lower number of actions, but other policies can also be used.
-!! 
 
 A set $R=\{r_1, r_2, r_3 \}$ of robots  is deployed in the environment graphically described in  Fig.~\ref{fig:example1}.
 This environment represents a building made by four rooms $L=\{ l_1, l_2, l_3, l_4 \}$, which has been affected by an earthquake.
@@ -51,25 +41,5 @@ The formulae specify that periodically robot $r_1$ loads debris on $r_2$ (by per
 Informally, while $r_3$ continuously takes pictures and sends them using the communication network, $r_1$ and $r_2$ remove debris to allow $r_3$ having a better view on the container.
 The pictures allow verifying whether toxic chemicals have been released by the container.
 
-The presence of partial knowledge about the robots and their environment is described in the following.
-
-\textbf{Partial knowledge about the actions execution.} 
-The robots can move between cells separated by grey lines, while they cannot cross black bold lines.
-It is unknown whether it is possible to move between cells $c_{14}$ and $c_{20}$ since the structure may have been affected by collapses.
-This is indicated using a dashed black bold line.
-It is also unknown whether robot $r_3$ can send pictures using a communication network in location $l_3$ and specifically in cell $c_{18}$, i.e., whether action $s_p$ can be performed. 
-Locations of the environment where it is unknown if an action can be provided are marked with the name of the action preceded by symbol $?$.
-
-\textbf{Unknown service provisioning.} 
-There are cases in which actions can be executed but there is uncertainty about service provisions.
-For example, actions $ud1$ and $ud2$ of robot $r_2$ unload the robot.
-Action $ud2$ will always be able to provide the \emph{unload} service, while it is unknown whether $ud1$ is actually able to provide this service since its effectiveness depends on the size of the collected debris. 
- In Fig.~\ref{fig:example1}, the label $L(ud1,unload)=?$ indicates that there is partial knowledge  about the provision of the \emph{unload} service when action $ud1$ is performed. 
-
-\textbf{Unknown meeting capabilities.} 
-It is  unknown whether robots $r_1$ and $r_2$ can meet in one cell of the environment. 
-For example, a collapse in the roof of the building may forbid the two robots to concurrently execute services $ld$ and $rd$, i.e., there is not enough space for $r1$ to load $r2$. 
-Unknown meeting capabilities are indicated with rotating arrows labeled with the symbol $?$.
-For example,  in Fig.~\ref{fig:example1}, it is unknown whether robots $r_1$ and $r_2$ are able to meet in cell $c_{9}$.
 
 
