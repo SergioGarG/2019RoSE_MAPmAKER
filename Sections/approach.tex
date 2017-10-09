@@ -1,5 +1,22 @@
 --Explain the tool from a high-level point of view--
 
+!!
+
+\textbf{Specific contributions.} Specific contributions are detailed in the following:
+\begin{enumerate*}
+\item we define the concept of \emph{partial robot model}, which allows the description of the behavior of the robots and its environment when only partial information is available. 
+Specifically, a partial robot model allows considering three types of partial information: partial knowledge about the execution of transitions (possibility of changing the robot location), on service provision (whether the execution of an action succeed in providing a service) and on the meeting capabilities (whether a robot can meet with another);
+%\item we define two possible LTL semantics on paths namely three-valued and thorough path semantics  and prove that  two semantics are particular cases of the more general thorough semantics~\cite{bruns2000model};
+\item we define the concept of local mission satisfaction for partial robot models;
+\item we define the distributed planning problem for partially specified robots;
+\item we propose a distributed planning algorithm and we proved its correctness;
+\item we evaluate the proposed algorithm on a robot application obtained from the RobotCup Logistics League competition~\cite{karrasrobocup} and
+on a robotic application working in an apartment of about 80 m$^2$, which is part of a large residential facility for senior citizens~\cite{map}.
+The results show the effectiveness of the proposed algorithm.
+\end{enumerate*}
+
+!!
+
 A set $R=\{r_1, r_2, r_3 \}$ of robots  is deployed in the environment graphically described in  Fig.~\ref{fig:example1}.
 This environment represents a building made by four rooms $L=\{ l_1, l_2, l_3, l_4 \}$, which has been affected by an earthquake.
 The environment is further partitioned in cells, each labeled with an identifier in $c_1, c_2, \ldots, c_{30}$.

@@ -1,4 +1,15 @@
---Explain the tool in detail, maybe including a scope-- (add figure for the tool? maybe in the previous section?) 
+--Explain the tool in detail, maybe including a scope-- (add figure for the tool? maybe in the previous section?)
+
+!!
+\textbf{Contribution.}
+This work presents  \toolName\ (Multi-robot plAnner for PArtially Known EnviRonments), a \emph{novel} \emph{decentralized} planner for partially known environments.
+%\toolName\ modifies~\cite{tumova2016multi} by supporting partial knowledge.
+Given a team of robots and a local mission for each robot, \toolName\ partitions the set of robots into classes based on dependencies dictated by the local missions of each robot.
+For each of these classes, it explores the state space of the environment and the models of the robot searching for definitive and possible plans.
+A \emph{definitive plan} is a sequence of actions that ensure the satisfaction of the local mission for each robot.
+A \emph{possible plan} is a sequence of actions that may satisfy the local mission due to some unknown information about the model of the robots or the environment in which they are deployed.
+\toolName\ chooses the plan that allows the achievement of the mission by performing the lower number of actions, but other policies can also be used.
+!! 
 
 A set $R=\{r_1, r_2, r_3 \}$ of robots  is deployed in the environment graphically described in  Fig.~\ref{fig:example1}.
 This environment represents a building made by four rooms $L=\{ l_1, l_2, l_3, l_4 \}$, which has been affected by an earthquake.
