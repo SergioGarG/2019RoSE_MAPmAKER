@@ -8,6 +8,7 @@ A \emph{planner} is  a software component that receives as input a model of the 
 As done in some recent works in the robotics community (see for example~\cite{fainekos2005temporal,kress2007s,kloetzer2008fully,fainekos2009temporal,wongpiromsarn2010receding,bhatia2010sampling,bhatia2010motion}), in this work we assume that 
 a robot application is defined using finite transition systems and
 each robot of the team  has to achieve a mission,  indicated as \emph{local mission}, that is specified as an LTL property. 
+As opposed to more traditional specification means, such as consensus or trajectory tracking in robot control, A-to-B travel in robot motion planning, or STRIPS or PDDL problem formulations in robot task planning, LTL allows us to specify a rich class of temporal goals that include e.g., surveillance, sequencing, safety, or reachability.
 
 %These are common assumptions made in the definition of planners within the robotic domain (see for example~\cite{fainekos2005temporal,kress2007s,kloetzer2008fully,fainekos2009temporal,wongpiromsarn2010receding,bhatia2010sampling,bhatia2010motion}).
 Several works studied centralized planners that are able to manage \emph{teams} of robots that collaborate to achieve a certain goal (a global mission)~\cite{kloetzer2011multi,loizou2005automated,quottrup2004multi}.
