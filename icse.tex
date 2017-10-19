@@ -256,18 +256,12 @@
 
 
 \begin{abstract}
-%Robot applications are increasingly based on \emph{teams} of autonomous robots that collaborate and interact to perform a desired mission. 
-Robot applications are increasingly asking for decentralized techniques that allow for tractable automated planning. %that are \emph{decentralized}, i.e., they decompose the team of robots into classes that have missions that can be analyzed in isolation inside each class.
-Another aspect that %novel 
-state-of-the-art robot applications must consider is \emph{partial knowledge} about the environment in which the robots are operating and the associated uncertainty with the outcome of the robots' actions.
-%This occurs, for example, when robots navigate in environments affected by natural disasters, where the movement between locations %or the execution of specific actions 
-%may be impossible due to structural collapses, flooding, etc.
+Robot applications are increasingly asking for decentralized techniques that allow for tractable automated planning. 
+Furthermore, those applications can be deployed in dynamic environments where its uncertainty must be handled.
+Typically, environments where human beings are involved can just provide a partial knowledge of its model, i.e. the current state of a door between two rooms in uncertain. 
 
-Current planning techniques used for teams of robots that should perform complex missions do not systematically address these challenges: they are either based on centralized solutions and hence not scalable, they consider rather simple missions, such as A-to-B travel, or do not work in partially known environments. 
-We present a %novel 
-planning solution that decomposes the team of robots into subclasses, considers complex high-level missions given in temporal logic, %is \emph{decentralized} 
-and at the same time works when only \emph{partial knowledge} of the environment is available.
-We prove the correctness of the solution and evaluate its effectiveness on a set of realistic examples.
+In contrast with current planning techniques used for teams of robots, our proposed solution is decentralized, thus scalable, the considered missions are complex (not traveling from a point A to B) and the knowledge of the environment is partial.
+
 \end{abstract}
 
 %
