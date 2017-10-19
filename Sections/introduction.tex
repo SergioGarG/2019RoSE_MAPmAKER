@@ -4,32 +4,20 @@
 %numerous problems~\cite{ljungblad2005designing}, such as the selection of the types of the robot to be employed (e.g., humanoid, robotic arm), the analysis of the required robot properties (e.g., emergence, emotional), the analysis of the place in which the robot operates (e.g., on the bus, in a birthday party), the activity the robot has to perform (e.g., move object, reach a location), and the users it has to serve (e.g., taxi driver, rock star). 
 %These aspects are then used by designers in the selection of appropriate planners.
 
+\toolName provides a planner where a robot application is defined using finite transition systems.
 A \emph{planner} is  a software component that receives as input a model of the robotic application and computes  a set of actions (a \emph{plan}) that, if performed, allows the achievement of a desired mission~\cite{latombe2012robot}.
-As done in some recent works in the robotics community (see for example~\cite{fainekos2005temporal,kress2007s,kloetzer2008fully,fainekos2009temporal,wongpiromsarn2010receding,bhatia2010sampling,bhatia2010motion}), in this work we assume that 
-a robot application is defined using finite transition systems and
-each robot of the team  has to achieve a mission,  indicated as \emph{local mission}, that is specified as an LTL property. 
-As opposed to more traditional specification means, such as consensus or trajectory tracking in robot control, A-to-B travel in robot motion planning, or STRIPS or PDDL problem formulations in robot task planning, LTL allows us to specify a rich class of temporal goals that include e.g., surveillance, sequencing, safety, or reachability.
+Each robot application contains the robots that conform the team and the mission that they have to achieve.
 
-%These are common assumptions made in the definition of planners within the robotic domain (see for example~\cite{fainekos2005temporal,kress2007s,kloetzer2008fully,fainekos2009temporal,wongpiromsarn2010receding,bhatia2010sampling,bhatia2010motion}).
-Several works studied centralized planners that are able to manage \emph{teams} of robots that collaborate to achieve a certain goal (a global mission)~\cite{kloetzer2011multi,loizou2005automated,quottrup2004multi}.
-Others studied how to decompose a global mission into a set of local missions to be achieved by each robot of the team~\cite{schillinger2016decomposition,guo2015multi,guo2015multi,tumova2016multi}. 
-These local missions have been recently exploited by \emph{decentralized} planners~\cite{tumova2016multi}, i.e., planners that instead of evaluating the global mission over the whole team of robots, analyze the satisfaction of local missions inside a subset of the team of robots. 
-In this way, the problem of finding a collective team behavior is decomposed into sub-problems that avoid the expensive fully centralized planning.
+A \emph{global mission} represents the high-level mission that must be accomplished by the whole team \cite{kloetzer2011multi,loizou2005automated,quottrup2004multi} and that is decomposed into a set of \emph{local missions}\cite{schillinger2016decomposition,guo2015multi,guo2015multi,tumova2016multi}.
+Every robot is commanded to achieve a local mission, specified as a LTL property.
+As seen in \cite{tumova2016multi}, this collaborative fashion of accomplishing the global mission is performed in a \emph{decentralized} way.
+Each robot that is part of a susbset of the team computes the solution for its own sub-mission, avoiding the expensive fully centralized planning and making it more robust to local problems.
 
-Another aspect that current planners must consider is partial knowledge  about the environment in which the robots should operate.
-Partial knowledge in software development has been strongly studied by the  software engineering community.
-For example, partial models have been used to support requirement analysis and elicitation~\cite{menghi2017integrating,menghi2017cover,letier2008deriving}, to help designers in producing a model of the system that satisfies a set of desired properties~\cite{uchitel2009synthesis,uchitel2013supporting,famelis2012partial,albarghouthi2012under} and to verify whether  already designed models possess some properties of interest~\cite{menghi2016dealing,bruns1999model,chechik2004multi}.
-However, most of the existing planners assume that the environment in which the robots are deployed is known~\cite{7139412}. 
-This assumption does not usually hold in real word scenarios~\cite{lahijanian2016iterative}.
-In real world applications it is usually the case that only \emph{partial knowledge} about the environment in which the robots are operating is present.
-%This occurs, for example, when the robots navigate in environments affected by natural disasters, where the movement between locations or the execution of specific actions may be impossible due to structural collapses, flooding etc.
-Several works studied planners that work when only partial information about the environment in which the robots operate is available (e.g.,~\cite{roy2006planning,du2012robot,diaz2001exploring}).
-However, %to the best of our knowledge, 
-literature considering \emph{decentralized} planners %have not been applied when 
-with only partial knowledge about the robot application and temporal logic goals
-is rather limited \cite{guo2015multi}.
-% is available .
-
+Nowadays, most of the planners consider the model of the environment as known and not dynamic~\cite{7139412}. 
+However, this is not a real condition of real world scenarios, where only \emph{partial knowledge} can be ensured.
+For this reason, our tool is able to compute a plan even when only partial information of the environment is available, as seen in \cite{roy2006planning,du2012robot,diaz2001exploring}.
+However, the novelty of our work consists in fuse all this features, exploiting a \emph{decentralized} methodology.
+This kind of approaches are not yet studied in detail, due to there are only a few planners managing this issues \cite{guo2015multi}.
 
 \textbf{Organization.} 
 Section~\ref{sec:limitations} introduces robotic applications by highlighting the status of current planners.
