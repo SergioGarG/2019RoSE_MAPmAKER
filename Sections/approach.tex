@@ -23,8 +23,8 @@ The transition between two of the cells that conform the grid map of the environ
 
 \textbf{Unknown service provisioning.} 
 In the dynamic environments studied for this work whether a service is provided or not in a specific location could be unknown. \sergio{reference to the other paper containing the running example?}
-In order to achieve the mission with the minimum number of actions performed, \toolName is able to compute a plan that tries to reach an uncertain service.
-Thus, \toolName computes a \emph{possible plan}.
+In order to achieve the mission with the minimum number of actions performed, \toolName~ is able to compute a plan that tries to reach an uncertain service.
+Thus, \toolName~ computes a \emph{possible plan}.
 
 \textbf{Unknown meeting capabilities.} 
 As stated before, robots can meet and synchronize in certain locations.
@@ -42,8 +42,8 @@ The model of each robot contains information regarding its initial position, the
 The model of the environment represents its map and defines the allowance of transitions between the cells that compound the model (i.e. walls). 
 This two models must be manually defined but can be reused for an infinite number of experiments.
 Then, the \emph{Random model generator} generates a certain number (defined by the user) of tests based on the previously explained models.
-Each of this tests is unique since the generator associates a random uncertainty and initial position of the robotic team to each of them.
-This process is performed for each experiment, since the uncertainty that is checked changes between them (e.g. execution of transitions in \emph{Experiment 1}, services provisioning in \emph{Experiment 2} and meeting capabilities in \emph{Experiment 3}).
+Each of this tests is unique since the generator associates a random uncertainty and an initial position of the robotic team to each of them.
+This process is automatically performed for each experiment, since the uncertainty that is checked changes between them (e.g. execution of transitions in \emph{Experiment 1}, services provisioning in \emph{Experiment 2} and meeting capabilities in \emph{Experiment 3}).
 The generation of models must be performed once, although we provide an already working set in our repository and this step can be skipped.
 The already existing models of the environment represent models of real robot applications, i.e., the RoboCup Logistics League competition~\cite{karrasrobocup} and an apartment of a large residential facility for senior citizens~\cite{map}.
 This set is stored in the folder "ReplicationPackage", where the new scenarios must be saved as well.
@@ -52,12 +52,12 @@ Once the models are set, the planner can be executed selecting the number of exp
 The approach that is followed in order to test the uncertainty of the environment and its repercussion into the performance of the tool is explained in the following.
 
 Step 1. For the first step a partial model of the whole robot application is loaded. 
-\toolName then computes a \emph{possible plan}, which is executed by the robot(s).
-When executing the plan, every time a robot detects a false evidence about a partial information , e.g., a transition of the plan is not executable, \toolName is re-executed to recompute a new \emph{possible plan}.
+~\toolName~ then computes a \emph{possible plan}, which is executed by the robot(s).
+When executing the plan, every time a robot detects a false evidence about a partial information , e.g., a transition of the plan is not executable, \toolName~ is re-executed to recompute a new \emph{possible plan}.
 
-Step 2. For this case all the unknown information regarding the robotic application is set to false, meaning that \toolName will always return a \emph{definitive plan}.
+Step 2. For this case all the unknown information regarding the robotic application is set to false, meaning that \toolName~ will always return a \emph{definitive plan}.
 
-During the performance of the two steps for a certain number of experiments \toolName collects information regarding:
+During the performance of the two steps for a certain number of experiments \toolName~ collects information regarding:
 \begin{enumerate*}
 \item the length of each plan;
 \item the time that took to the tool to compute each plan;
