@@ -1,48 +1,30 @@
 --Explain the tool in detail, maybe including a scope-- (add figure for the tool? maybe in the previous section?)
 
 Our tool was developed using the MATLAB~\cite{matlab} environment.
-The tool is composed by several MATLAB scripts that can be executed independently for reaching certain functions or in a much more suitable way by means of a  launcher script (~/MAPmAKER/experimentLauncher.m).
-
-In the following a detailed explanation of the capabilities of the tool is presented.
-A set $R=\{r_1, r_2, r_3 \}$ of robots  is deployed in the environment graphically described in  Fig.~\ref{fig:example1}.
-This environment represents a building made by four rooms $L=\{ l_1, l_2, l_3, l_4 \}$, which has been affected by an earthquake.
-The environment is further partitioned in cells, each labeled with an identifier in $c_1, c_2, \ldots, c_{30}$.
-Robots $r_1$, $r_2$, and $r_3$ are placed in their initial locations.
-Each robot is able to move from one cell to another, by performing action $mov$.
-The robots are also able to perform the following actions.
-Robot $r_1$ is able to load debris of the building by performing action $ld$. 
-In Fig.~\ref{fig:example1} the cells in which a robot $r$ can perform an action $\alpha$ are marked with the label $r(\alpha)$.
-Robot $r_2$ can wait until another robot loads debris on it by performing action $rd$ and can unload debris by performing one of the two actions $ud1$ and $ud2$. 
-Actions $ud1$ and $ud2$ use different actuators.
-Specifically, action $ud1$ uses a gripper while action $ud2$ exploits a dump mechanism.
-Robot $r_3$ is able to take pictures by performing action $tp$ and send them using a communication network through the execution of action $sp$. 
-Symbols $r_1(ld)$, $r_2(rd)$, $r_2(ud1)$, $r_2(ud2)$, $r_3(tp)$, and $r_3(sp)$ are used in Fig.~\ref{fig:example1} to mark the regions where  actions can be executed by the robots, while movement actions are not reported for graphical reasons.
-Each action may be associated with a service, which is a high-level functionality provided by the robot when an action is performed.
-For example, actions $ld$, $rd$, $tp$, and $sp$  are associated with the services \emph{load\_carrier}, \emph{detect\_load}, \emph{take\_snapshot}, and \emph{send\_info}, respectively.
-Actions $ud1$ and $ud2$ are associated with service \emph{unload}.
-The labels $L(\pi,\alpha)=\trueval$ below Fig.~\ref{fig:example1} are used to indicate that a service $\pi$ is associated with  action $\alpha$. 
-Robots must meet and  synchronously execute actions. 
-In this example, robots $r_1$ and  $r_2$ must meet  in cell $c_7$ and synchronously execute actions $ld$ and $rd$, respectively. 
-The cells where meeting is requested are marked with rotating arrows marked with the identifiers of the robots that must meet, meaning that, in order to meet, the robots must be on the same cell to meet.
+The tool is composed by several MATLAB-based scripts that can be executed independently for performing certain functions.
+\ugh{They can also be launched in a much more suitable way by means of a launcher script (located in ~/MAPmAKER/experimentLauncher.m).}
 
 
-\begin{figure}[!t]
-\begin{center}
-\includegraphics[width=0.9\linewidth]{Figures/motivatingExample.pdf}
-\caption{An example showing the model of the robots and their environment. Plans computed by \toolName\ are represented by trajectories marked with arrows.}
-\label{fig:example1}
-\end{center}
-\end{figure}
+\textbf{Performance}
 
-The \emph{mission}  the team of robots has to achieve is to check whether toxic chemicals have been released by the container located in $l_4$.
-We assume that the mission is specified through a set of \emph{local missions} assigned to each robot of the team and described in Linear Time Temporal Logic  (LTL).
-An LTL formula is obtained by composing actions with standard LTL operators: $\Next$ (next), $\Event$  (eventually),  $\Always$ (always) and $\Until$ (until)~\cite{pnueli1977temporal}. 
-In our example the mission  can be specified by means of the following local missions: $\phi_1=\Always (\Event ($\emph{load\_carrier}$))$, 
-$\phi_2=\Always (\Event($\emph{detect\_ load} $ \wedge \Event ($\emph{unload}$)))$, 
- $\phi_3=\Always ( \Event ($\emph{take\_snapshot} $\wedge \Event ($\emph{send\_info}$)))$, which are assigned to robot $r_1$, $r_2$ and $r_3$, respectively.
-The formulae specify that periodically robot $r_1$ loads debris on $r_2$ (by performing action \emph{load\_carrier}), robot $r_2$ receives debris (when action \emph{detect\_ load} occurs)  and brings them to an appropriate unload area (by performing action \emph{unload}), and robot $r_3$ continuously takes pictures (by performing action \emph{take\_snapshot}) and sends them using the communication network (by performing action \emph{send\_info}).
-Informally, while $r_3$ continuously takes pictures and sends them using the communication network, $r_1$ and $r_2$ remove debris to allow $r_3$ having a better view on the container.
-The pictures allow verifying whether toxic chemicals have been released by the container.
+In \sergio{cite previous work} we have shown that our tool is able to perform a plan even in environments full of uncertainty.
+Thus, \toolName is able to compute a plan where other planners will not.
+However, the computation time and the number of actions to be performed by the robot that tries to follow a possible plan and detects a false evidence are normally greatly increased.
+This increasing is due to required re-computing that has to be performed when looking for a new possible plan.
 
+For checking its performance the tool was tested in different environments based on real-world scenarios.
+The model of the uncertainty of the environment was randomly created and matched with randomly models of the robots (service and synchronization locations and uncertainties).
+The performance of tool was evaluated in two Research Questions divided in three experiments (one for each kind of uncertainty defined for this project).
+The results are presented and discussed in \sergio{cite previous work}
 
+\sergio{TODO: Explain in detail how to use the tool with the new way of defining the tasks }
 
+\textbf{Tool Validation}
+
+The \toolName is available at ~\url{https://goo.gl/GY7ZrG}.
+There, the following features can be found:
+\begin{enumerate}
+\item a complete replication package of the two RQs and experiments proposed at \sergio{cite other work},
+\item  a set of videos showing \toolName\ in action computing and solving the scenarios presented at the previous bullet,
+\item a brief user guide which defines the functionalities provided by our tool.
+\end{enumerate}
