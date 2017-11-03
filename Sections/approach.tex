@@ -9,9 +9,7 @@ A \emph{possible plan} is a sequence of actions that may satisfy the local missi
 If \toolName is able to find a plan, it is performed in order to achieve each robot's mission.
 The tool always try to reach the goal performing the lower number of actions.
 
-Each robot is able to perform a complex mission, therefore the goals that they reach in the environment represent points where a service is provided \sergio{reference to the other paper containing the running example?}
-\claudio{In the intro write. This is a companion presents..
-Additional info can be found in~\cite{}. and put the ICSE paper as reference} or where two robots can synchronize.
+Each robot is able to perform a complex mission, therefore the goals that they reach in the environment represent points where a service is provided or where two robots can synchronize.
 However, in order to reach these goals robots must face different issues related with partial knowledge, as listed in the following lines.
 
 \textbf{Partial knowledge about the actions execution.} 
@@ -24,13 +22,13 @@ The transition between two of the cells that conform the grid map of the environ
 \toolName is able to compute a plan that goes through an unknown transition, therefor performing a \emph{possible plan}.
 
 \textbf{Unknown service provisioning.} 
-In the dynamic environments studied for this work whether a service is provided or not in a specific location could be unknown. \sergio{reference to the other paper containing the running example?}
+In the dynamic environments studied for this work whether a service is provided or not in a specific location could be unknown. 
 In order to achieve the mission with the minimum number of actions performed, \toolName~ is able to compute a plan that tries to reach an uncertain service.
 Thus, \toolName~ computes a \emph{possible plan}.
 
 \textbf{Unknown meeting capabilities.} 
 As stated before, robots can meet and synchronize in certain locations.
-There they can perform a mission, as exchanging a load, in a collaborative fashion.\sergio{reference to the other paper containing the running example?}
+There they can perform a mission, as exchanging a load, in a collaborative fashion.
 In this case, two or more robots that are part of the same subset part of the whole team can compute a plan whose goal is to meet in an uncertain synchronization point.
 Thus, \toolName computes a \emph{possible plan}.
 

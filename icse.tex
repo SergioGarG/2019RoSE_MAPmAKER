@@ -257,21 +257,15 @@
 
 \begin{abstract}
 \claudio{General comment: a paper is not a paper is a piece of art.! Imagine it as a Leopardi Poems, people should enjoy reading your paper.}
-Robot applications are increasingly asking for decentralized techniques that allow for tractable automated planning. 
-\claudio{Why?}
-Furthermore, those applications can be deployed in dynamic environments where its uncertainty must be handled.
-Typically, environments where human beings are involved can just provide a partial knowledge of its model, i.e. the current state of a door between two rooms in uncertain. 
-\claudio{Read your sentence and compare it with the following:
-Environments where robots are deployed are  dynamic and change over time, e.g.,
+Robot applications are being increasingly used in order to help humans taking dangerous, heavy or monotonous tasks that can be handled without expertise.
+A robot application can be composed by a robot or a team of them if the user wants them to perform a more complex mission.
+For these reason, those applications ask for decentralized techniques that allow for tractable automated planning. 
+Furthermore, environments where robots are deployed are dynamic and change over time, e.g.,
 doors can be open and closed, humans can move between different rooms.
-For this reason environments are usually \emph{partially known}.
-}
-
+Thus, environments are usually \emph{partially known}.
+However, current solutions with decentralized computation do not address such environments.
 
 Our proposed tool, \toolName\ tackle the limitations that current planning techniques are used for teams of robots: 
-\claudio{Why which limitations? you never mentioned that current tools have limitations.
-Maybe you should add a sentence at the end of the previous paragraph such as:
-However, current solutions  .. and something about the fact that do not address partially known environments and are not decentralized.}
 \begin{enumerate*}
 \item it decomposes the robotic team into subclasses, avoiding the not scalable centralized approach;
 \item it considers complex-high level missions given in temporal logic;
@@ -325,10 +319,6 @@ However, current solutions  .. and something about the fact that do not address 
 \section{Introduction}
 \input{Sections/introduction.tex}
 
-\section{Limitations of current planners}
-\label{sec:limitations}
-\input{Sections/limitations.tex}
-
 \section{The MApMAKER approach}
 \label{sec:approach}
 \input{Sections/approach.tex}
@@ -336,6 +326,10 @@ However, current solutions  .. and something about the fact that do not address 
 \section{The MApMAKER tool}
 \label{sec:tool}
 \input{Sections/tool.tex}
+
+\section{Related work}
+\label{sec:related}
+\input{Sections/related.tex}
 
 \section{Conclusions}
 \label{sec:conclusion}
