@@ -1,37 +1,28 @@
-Nowadays, most of the planners consider the model of the environment as known and not dynamic~\cite{7139412}. 
-However, this is not a real condition of real world scenarios, where only \emph{partial knowledge} can be ensured \claudio{In my opinion partial knowledge cannot be ensured, partial knowledge is present or available}.
-For this reason, our tool  is able to
-\claudio{This is still not the moment for discussing the contribution, (the contribution is usually discussed in the last two paragraphs, I would change ``our toll" with ``there is an increasing need of tools able to"}  compute a plan even when only partial information of the environment is available, as seen in \cite{roy2006planning,du2012robot,diaz2001exploring}.
-However, the novelty of our work consists in fuse all this features\claudio{which features?}, exploiting a \emph{decentralized} methodology.
-This kind of approaches are not yet studied in detail, due to there are only a few planners managing this issues \cite{guo2015multi}.
-
 \toolName\ provides a planner where a robot application is defined using finite transition systems.
-A \emph{planner} is  a software component that receives as input a model of the robotic application and computes  a set of actions (a \emph{plan}) that, if performed, allows the achievement of a desired mission~\cite{latombe2012robot}.\claudio{You already mentioned a ``plan" without defining it, probably the plan definition should be before the first use of the term plan.}
+A \emph{planner} is  a software component that receives as input a model of the robotic application and computes  a set of actions (a \emph{plan}) that, if performed, allows the achievement of a desired mission~\cite{latombe2012robot}.
 Each robot application contains the robots that conform the team and the mission that they have to achieve.
 
-For this work, we differentiate the aforementioned term of missions between \emph{global missions} and \emph{local missions}.
+Nowadays, most of the planners consider the model of the environment as known and not dynamic~\cite{7139412}. 
+However, this is not a real condition of real world scenarios
+In real scenarios the knowledge of the environment cannot be ensured, so only \emph{partial knowledge} is available.
+For this reason, there is an increasing need of tools able to compute a plan even when only partial information of the environment is available, as seen in \cite{roy2006planning,du2012robot,diaz2001exploring}.
+
+In this work, we differentiate the term of missions between \emph{global missions} and \emph{local missions}.
 A \emph{global mission} represents the high-level mission that must be accomplished by the whole team \cite{kloetzer2011multi,loizou2005automated,quottrup2004multi} and that is decomposed into a set of \emph{local missions}\cite{schillinger2016decomposition,guo2015multi,guo2015multi,tumova2016multi}.
 Every robot is commanded to achieve a local mission, specified as a LTL property.
 As seen in \cite{tumova2016multi}, this collaborative fashion of accomplishing the global mission is performed in a \emph{decentralized} way.
 Each robot that is part of a subset of the team computes the solution for its own sub-mission, avoiding the expensive fully centralized planning and making it more robust to local problems.
+\toolName\ splits the given set of robot that conforms the team into classes depending on the local mission that each of them must achieve.
 
-\claudio{Here is the place where the paragraph of MAPmAKER should be located}.
-This paper presents \toolName\ and is a companion paper of~\cite{mapmaker17}.
-\claudio{\toolName\ bla bla bla}
-\claudio{Proofs about the soundness of \toolName\ can be found in~\cite{mapmaker17}\footnote{This paper is made available for the reviewers   at  \url{https://goo.gl/GY7ZzG}.}.
-Evaluation is performed by analysing its behaviour on a robot application obtained from the RobotCup Logistics League competition~\cite{} and on a robotic application working in an apartment of about 80 m , which is part of
-a large residential facility for senior citizens~\cite{}.}
-%Additional information including a running example can be found in~\cite{mapmaker17}.
-
-\claudio{The following paragraph goes in the intro}
 This work presents  \toolName\ (Multi-robot plAnner for PArtially Known EnviRonments), a \emph{novel} \emph{decentralized} planner for partially known environments.
 \toolName\ modifies~\cite{tumova2016multi} by supporting partial knowledge.
-This tool splits the given set of robot that conforms the team into classes depending on the local mission that each of them must achieve.
-
+Proofs about the soundness of \toolName\ can be found in~\cite{mapmaker17}\footnote{This paper is made available for the reviewers   at  \url{https://goo.gl/GY7ZzG}}.
+Evaluation is performed by analysing its behaviour on a robot application obtained from the RobotCup Logistics League competition~\cite{karrasrobocup} and on a robotic application working in an apartment of about 80 m , which is part of
+a large residential facility for senior citizens~\cite{map}.
 
 \textbf{Organization.} 
-Section~\ref{sec:approach} describes the \toolName\ approach.
-Section~\ref{sec:tool} presents the \toolName\ tool.
+Section~\ref{sec:approach} presents an overview of \toolName.
+Section~\ref{sec:tool} defines the way of using the \toolName\ tool.
 Section~\ref{sec:related} introduces different works with a similar scope and position our research.
 Section~\ref{sec:conclusion} concludes with final remarks.
 
