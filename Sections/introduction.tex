@@ -1,29 +1,56 @@
-Robotic applications usually rely on a set of robots that are used to perform a set of missions.
-Planners are one of the main ingredients that allow robots achieving their missions.
-A \emph{planner} is  a software component that receives as input a model of the robotic application and computes  a set of actions---a \emph{plan}--- that, if performed, allows the achievement of a desired mission~\cite{latombe2012robot}.
+Robotic applications usually rely on a set of robots that are used to perform missions.
+The term mission can refer to a \emph{global mission}, i.e., the high-level mission that must be accomplished by the whole team~\cite{quottrup2004multi} or a \emph{local mission}, i.e., the mission that should be achieved by a single robot possibly by collaborating with other robots~\cite{tumova2016multi}.
+%Every robot is commanded to achieve a local mission, specified as a LTL property.
+Planners are one of the main ingredients that allow robots to achieve  missions.
+A \emph{planner} is  a software component that receives as input a model of the robotic application and computes  a set of actions---a \emph{plan}--- that, if performed, allows the achievement of a desired mission(s)~\cite{latombe2012robot}.
 %Each 
 
-Nowadays, most of the planners consider the model of the environment as known and not dynamic~\cite{7139412}. 
-However, this is not a real condition of real world scenarios
-In real scenarios the knowledge of the environment cannot be ensured, so only \emph{partial knowledge} is available.
-For this reason, there is an increasing need of tools able to compute a plan even when only partial information of the environment is available, as seen in \cite{roy2006planning,du2012robot,diaz2001exploring}.
+Current robotic applications require planners to address two main challenges: 
+\begin{enumerate*}
+\item the planning problem should be solved by using algorithms that make the problem tractable;
+\item the planning algorithm should work also when (only) partial knowledge about the system ---the robots and their environment--- is present.
+\end{enumerate*}
 
-In this work, we differentiate the term of missions between \emph{global missions} and \emph{local missions}.
-A \emph{global mission} represents the high-level mission that must be accomplished by the whole team \cite{kloetzer2011multi,loizou2005automated,quottrup2004multi} and that is decomposed into a set of \emph{local missions}\cite{schillinger2016decomposition,guo2015multi,guo2015multi,tumova2016multi}.
-Every robot is commanded to achieve a local mission, specified as a LTL property.
-As seen in \cite{tumova2016multi}, this collaborative fashion of accomplishing the global mission is performed in a \emph{decentralized} way.
-Each robot that is part of a subset of the team computes the solution for its own sub-mission, avoiding the expensive fully centralized planning and making it more robust to local problems.
-\toolName\ splits the given set of robot that conforms the team into classes depending on the local mission that each of them must achieve.
+Tractability refers to the capability of computer algorithms in solving problems. 
+Several works studied centralized planners that are able to manage \emph{teams} of robots that collaborate to achieve a certain goal (a global mission)~\cite{kloetzer2011multi,loizou2005automated,quottrup2004multi}.
+However, planning is computationally expensive especially when the number robots of within the team increases and robots needs to collaborate to fulfill their local missions.
+For this reason research interest had focused on decomposing a global mission into a set of local missions to be achieved by each robot of the team~\cite{schillinger2016decomposition,guo2015multi,guo2015multi,tumova2016multi}. 
+These local missions have been recently exploited by \emph{decentralized} planners~\cite{tumova2016multi}, i.e., planners that instead of evaluating the global mission over the whole team of robots, analyze the satisfaction of local missions inside a subset of the team of robots. 
+In this way, the problem of finding a collective team behavior is decomposed into sub-problems that avoid the expensive fully centralized planning. 
+However, the applicability of these algorithms have never been studied when only partial knowledge about the system is available.
 
-This work presents  \toolName\ (Multi-robot plAnner for PArtially Known EnviRonments), a \emph{novel} \emph{decentralized} planner for partially known environments.
-\toolName\ modifies~\cite{tumova2016multi} by supporting partial knowledge.
-Proofs about the soundness of \toolName\ can be found in~\cite{mapmaker17}\footnote{This paper is made available for the reviewers   at  \url{https://goo.gl/GY7ZzG}}.
-Evaluation is performed by analysing its behaviour on a robot application obtained from the RobotCup Logistics League competition~\cite{karrasrobocup} and on a robotic application working in an apartment of about 80 m , which is part of
-a large residential facility for senior citizens~\cite{map}.
+The role of partial knowledge in software development has been strongly studied in literature.
+Research has been done on how to consider partial knowledge in requirement analysis and elicitation~\cite{menghi2017integrating,menghi2017cover,letier2008deriving}, in the development of a model of the system that satisfies a set of desired properties~\cite{uchitel2009synthesis,uchitel2013supporting,famelis2012partial,albarghouthi2012under,Bernasconi2017} and in checking   whether an  already designed models possess some properties of interest~\cite{menghi2016dealing,bruns1999model,chechik2004multi}.
+However, most of the existing planners assume that the environment in which the robots are deployed is known~\cite{7139412}. 
+This assumption does not usually hold in real word scenarios~\cite{lahijanian2016iterative}  where, for example,  the robots navigate in environments affected by natural disasters, where the movement between locations or the execution of specific actions may be impossible due to structural collapses, flooding etc.
+The planners that consider  partial information about the environment in which the robots operate (e.g.,~\cite{roy2006planning,du2012robot,diaz2001exploring}) usually rely on probabilistic algorithms and are not  \emph{decentralized}.
+%However, %to the best of our knowledge, 
+%literature considering \emph{decentralized} planners %have not been applied when 
+%with only partial knowledge about the robot application and temporal logic goals
+%is rather limited \cite{guo2015multi}.
 
-\textbf{Organization.} 
+%Nowadays, most of the planners consider the model of the environment as known and not dynamic~\cite{7139412}. 
+%However, this is not a real condition of real world scenarios
+%In real scenarios the knowledge of the environment cannot be ensured, so only \emph{partial knowledge} is available.
+%For this reason, there is an increasing need of tools able to compute a plan even when only partial information of the environment is available, as seen in \cite{roy2006planning,du2012robot,diaz2001exploring}.
+
+
+%As seen in \cite{tumova2016multi}, this collaborative fashion of accomplishing the global mission is performed in a \emph{decentralized} way.
+%Each robot that is part of a subset of the team computes the solution for its own sub-mission, avoiding the expensive %fully centralized planning and making it more robust to local problems.
+%\toolName\ splits the given set of robot that conforms the team into classes depending on the local mission that each of them must achieve.
+
+This work presents  \toolName: a Multi-robot plAnner for PArtially Known EnviRonments.
+ \toolName\ provides a  \emph{decentralized} planning solutions that works in \emph{partially known} environments.
+%\toolName\ modifies~\cite{tumova2016multi} by supporting partial knowledge.
+ Decentralization is realized by decomposing the robotic team into subclasses based on their missions, and then by running a classical planning algorithm.
+Partial knowledge is handled by calling several times  a classical planning algorithm.
+The theory that supports \toolName\ including proofs of correctness a detailed description of the modelling formalisms and the verification procedures can be found in~\cite{mapmaker17}\footnote{This paper is made available for the reviewers   at  \url{https://goo.gl/GY7ZzG}}.
+\toolName\ is evaluated by analysing its behaviour on a robot application obtained from the RobotCup Logistics League competition~\cite{karrasrobocup} and on a robotic application working in an apartment of about 80 m$^2$~\cite{map}.
+%, which is part ofa large residential facility for senior citizens.
+
+This paper is organized as follows. 
 Section~\ref{sec:approach} presents an overview of \toolName.
-Section~\ref{sec:tool} defines the way of using the \toolName\ tool.
-Section~\ref{sec:related} introduces different works with a similar scope and position our research.
+Section~\ref{sec:tool} describes how  \toolName\ can be used.
+Section~\ref{sec:evaluation} evaluates  \toolName.
 Section~\ref{sec:conclusion} concludes with final remarks.
 

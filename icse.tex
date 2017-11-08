@@ -263,9 +263,9 @@ Robot applications are being increasingly used in real life to  help humans perf
 They usually rely on planners that given a robot or a team of robots computes plans that specify how the robot(s) can fulfill their missions.
 Current robot applications  ask for planners that make automated planning \emph{tractable}  and possible even when only \emph{partial knowledge} about the robot application is present, e.g., some information about the environment in which the robots are deployed is missing.
 
-This paper presents \toolName\ a tool that aims supporting run-time mission execution by tackling the previous challenges, i.e., it provides a decentralized planning solution and  is able to work when only partial knowledge of the environment is present.
+This paper presents \toolName\ a tool that aims supporting run-time mission execution by tackling the previous challenges, i.e., it provides a decentralized planning solution that helps reducing the planning overhead and  is able to work when only partial knowledge of the environment is present.
  Decentralization is realized by decomposing the robotic team into subclasses based on their missions, and then by running a classical planning algorithm.
-Partial knowledge is handled by calling two times  a classical planning algorithm.
+Partial knowledge is handled by calling several times  a classical planning algorithm.
 \end{abstract}
 
 %
@@ -321,6 +321,7 @@ Partial knowledge is handled by calling two times  a classical planning algorith
 \input{Sections/tool.tex}
 
 \section{Evaluation}
+\label{sec:evaluation}
 \input{Sections/evaluation.tex}
 
 \section{Related work}
