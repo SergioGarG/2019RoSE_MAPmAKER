@@ -1,8 +1,6 @@
---Explain the tool from a high-level point of view--
 
-This work presents  \toolName\ (Multi-robot plAnner for PArtially Known EnviRonments), a \emph{novel} \emph{decentralized} planner for partially known environments.
-\toolName\ modifies~\cite{tumova2016multi} by supporting partial knowledge.
-This tool splits the given set of robot that conforms the team into classes depending on the local mission that each of them must achieve.
+An overview of \toolName\ is depicted in Fig.~\ref{fig:overview}.
+\toolName\ takes as input a model of the robots and the environment in which they
 Then, the planner computes possible and definitive plans based on the model of the environment and its partial knowledge.
 A \emph{definitive plan} is a sequence of actions that ensure the satisfaction of the local mission for each robot. 
 A \emph{possible plan} is a sequence of actions that may satisfy the local mission due to some unknown information about the model of the robots or the environment in which they are deployed. 
@@ -36,7 +34,7 @@ Whenever a robot approaches to an location with uncertain information, it detect
 The robot then updates the information concerning to this location, setting it yo ``true" or ``false".
 This information is shared with the rest of the team so it can be take into account for further planning.
 
-An overview of \toolName\ is depicted in ~\ref{fig:overview}.
+
 The \emph{Planner} script uses the models of the robot(s) and the environment in order to compute the path-planning.
 The model of each robot contains information regarding its initial position, the number of services that the robot must perform and their location and the locations where the modeled robot has to synchronize with another one.  
 The model of the environment represents its map and defines the allowance of transitions between the cells that compound the model (i.e. walls). 
