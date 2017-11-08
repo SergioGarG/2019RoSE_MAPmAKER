@@ -259,22 +259,14 @@
 
 
 \begin{abstract}
-Robot applications are being increasingly used in order to help humans taking dangerous, heavy or monotonous tasks that can be handled without expertise.
-A robot application can be composed by a robot or a team of them if the user wants them to perform a more complex mission.
-A way to increment the efficiency of planning is by using decentralized techniques which generally decompose a complex mission over the team of robots.
-Furthermore, environments where robots are deployed are dynamic and change over time, e.g.,
-doors can be open and closed, humans can move between different rooms.
-Thus, environments are usually \emph{partially known}.
-However, current solutions with decentralized computation do not address such environments.
+Robot applications are being increasingly used in real life to  help humans performing dangerous, heavy or monotonous tasks.
+They usually rely on planners that given a robot or a team of robots computes plans that specify how the robot(s) can achieve their missions.
+Current robot applications  ask for planners that make automated planning \emph{tractable}  and possible even when only \emph{partial knowledge} about the robot application is present, e.g., some information about the environment in which the robots are deployed is missing.
 
-Our proposed tool, \toolName\ tackle the limitations that current planning techniques are used for teams of robots: 
-\begin{enumerate*}
-\item it considers complex-high level missions given in temporal logic;
-\item it decomposes the robotic team into subclasses, based on the mission to be achieved; and
-\item it is able to work also with only partial knowledge of the environment.
-\end{enumerate*}
-
-
+This paper presents \toolName\ a tool that aims supporting run-time mission execution by tackling the previous challenges.
+\toolName\ provides a decentralized planning solution and  is able to work also when only partial knowledge of the environment is present.
+ Decentralization is realized by decomposing the robotic team into subclasses based on their missions, and then by running a classical planning algorithm.
+Partial knowledge is handled by executing a classical planning algorithm twice.
 \end{abstract}
 
 %
