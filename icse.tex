@@ -261,8 +261,7 @@
 \begin{abstract}
 Robot applications are being increasingly used in order to help humans taking dangerous, heavy or monotonous tasks that can be handled without expertise.
 A robot application can be composed by a robot or a team of them if the user wants them to perform a more complex mission.
-For these reasons, those applications ask for decentralized techniques that allow for \emph{tractable} automated planning. 
-\claudio{A way to increment the efficiency of planning is by using decentralized techniques which generally decompose a complex mission over the team of robots.}
+A way to increment the efficiency of planning is by using decentralized techniques which generally decompose a complex mission over the team of robots.
 Furthermore, environments where robots are deployed are dynamic and change over time, e.g.,
 doors can be open and closed, humans can move between different rooms.
 Thus, environments are usually \emph{partially known}.
@@ -270,10 +269,9 @@ However, current solutions with decentralized computation do not address such en
 
 Our proposed tool, \toolName\ tackle the limitations that current planning techniques are used for teams of robots: 
 \begin{enumerate*}
-\item it decomposes the robotic team into subclasses \claudio{based on the mission to be achieved}, avoiding the not scalable centralized approach;\claudio{I would switch points 1 and 2.}
 \item it considers complex-high level missions given in temporal logic;
-\item it is able to work also with only partial knowledge of the environment, performing possible plans
-\claudio{Never mentioned what a possible plan is, i would remove ``performing possible plans"}.
+\item it decomposes the robotic team into subclasses, based on the mission to be achieved; and
+\item it is able to work also with only partial knowledge of the environment.
 \end{enumerate*}
 
 
