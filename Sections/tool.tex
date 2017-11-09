@@ -1,6 +1,6 @@
 
 \toolName\  was developed as a  MATLAB~\cite{matlab} standalone application.
-It is developed on the top of an existing  planner presented in~\cite{tumova2016multi} which has been chosen since it already implements a decentralized planning procedure.
+It is developed on top of an existing  planner presented in~\cite{tumova2016multi} which has been chosen since it already implements a decentralized planning procedure.
 \toolName\ calls this planner twice considering two different versions of the model of the robots and their environments. 
 The results obtained by performing this procedure are sound and correct.
 Additional details and proofs can be found in~\cite{mapmaker17}.
@@ -11,7 +11,7 @@ This files must be currently manually written by the developer.
 
 
 \begin{lstlisting}[frame=single, backgroundcolor=\color{light-gray}, basicstyle=\footnotesize\ttfamily, language=Java, numbers=left, numberstyle=\tiny\color{black},caption= {Running \toolName}\label{lst:command}, captionpos=b]
-MAPmAKER model mission
+mapmaker_exp('RQ', 'Scenario', 'Experiment')
 \end{lstlisting}
 \claudio{Fix the previous with the current command}
 
@@ -26,7 +26,7 @@ MAPmAKER model mission
 %In a normal case where the scenarios are already defined, the only components of the architecture depicted in~\ref{fig:overview} that are used are the \emph{Replication Package}, the \emph{Robot \& Environment models with uncertainty}, the \emph{Planner} itself and its inputs and, of course, the \emph{Solutions container}.
 %The first component represents a folder where the models of the robot and environment with a certain added uncertainty for the selected experiment are stored.
 
-When  \toolName\ a graphical interface similar to the one presented  in Figure~\ref{fig:outputexample} is showed.
+When  \toolName\ is launched a graphical interface similar to the one presented  in Figure~\ref{fig:outputexample} is showed.
 The grid represents the environment in which robot are moving.
 Each cell represents a location of the environment. 
 Robots are represented by the squared colored boxes.
