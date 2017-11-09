@@ -10,13 +10,7 @@ If \toolName\ not able to find neither a definitive nor a possible plan a messag
 Otherwise an appropriate component is used to choose between definitive and a possible plans (if both are present) or simply chooses the possible plan if no definitive plan is present.
 Definitive plans are not present when the only way to satisfy the local mission is based on some unknown information about the model of the robots or the environment in which they are deployed. 
 \toolName\ then executes the selected plan (\circled{7}).
-\begin{figure}[b]
-\begin{center}
-\includegraphics[width=1\linewidth]{Figures/MAPmAKER.pdf}
-\caption{Overview of  MAPmAKER.}
-\label{fig:overview}
-\end{center}
-\end{figure}
+
 As robots perform plans information about uncertain parts of the model is detected.
 \toolName\ updates the   models with the detected information (\circled{8}).
 If \toolName\  detects that a plan is not any more executable, the planner is re-executed (\circled{9}).
@@ -47,7 +41,13 @@ For example, it is unclear whether two robots can exchange a load in a given map
 This uncertainty may be caused by collapsing registered in the structure where the robots are deployed.
 
 
-
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=1\linewidth]{Figures/MAPmAKER.pdf}
+\caption{Overview of  MAPmAKER.}
+\label{fig:overview}
+\end{center}
+\end{figure}
 
 
 
