@@ -6,13 +6,15 @@ The results obtained by performing this procedure are sound and correct.
 Additional details and proofs can be found in~\cite{mapmaker17}.
 
 
-\toolName\ is executed as shown in Listing~\ref{lst:command}, where \texttt{RQ} means the research question to be answered, what determine the possible experiments to be performed.
+\toolName\ can be executed in two ways, as shown in Listing~\ref{lst:command}.
 \texttt{Scenario} is a Matlab file containing the model of the environment and the robots and \texttt{Experiment} encode the mission that must be satisfied by each robot.
-This files must be currently manually written by the developer.
-
+The first option is the general way of executing the tool, using custom scenarios and experiments developed by the user.
+In the second option the research question \texttt{RQ} that we tried to answer in this paper has to be specified.
+This option is used for replicating the results that we present in~\cite{mapmaker17}.
 
 \begin{lstlisting}[frame=single, backgroundcolor=\color{light-gray}, basicstyle=\footnotesize\ttfamily, language=Java, numbers=left, numberstyle=\tiny\color{black},caption= {Running \toolName}\label{lst:command}, captionpos=b]
-mapmaker_exp('RQ', 'Scenario', 'Experiment')
+mapmaker_exp 'Scenario', 'Experiment')
+mapmaker_exp 'Scenario', 'Experiment', 'RQ')
 \end{lstlisting}
 
 %The tool is composed by several MATLAB-based scripts that can be executed independently for performing certain functions.
@@ -43,13 +45,23 @@ Robot $r_1$ has to perform the action 1, which is present in cells 7 and 9---not
 Action 1 and action 2 (which has to be accomplished by robot $r_2$) are located in a cell labeled with a cross, so robot must meet there and perform both actions at the same time.
 Robot $r_1$ can also perform this mission in cell 9, but it is unsure the synchronization in this cell.
 As explained before, robot $r_2$ must synchronize with robot $r_1$ and perform action 2, but then it has to reach cell 22 for performing action 3.
-Finally, robot $r_2$ has to perform action 4 in cell 2 and action 5, which can be possible executed in cell 18 or in cell 30.
+Finally, robot $r_3$ has to perform action 4 in cell 2 and action 5, which can be possibly executed in cell 18 or in cell 30.
 
-\claudio{Explain the same example of the paper by showing the plans in Figure 2}
+In figure~\ref{fig:outputexample} we represented different plans performed by the robots. 
+Starting from robot $r_1$, there are two different plans that could be performed.
+P1 represents a definitive plan and P1' a possible plan where a true evidence was detected by the robot.
+In those paths the robot basically reaches the cell where the action can be performed with the help of robot $r_2$ and moves away. 
+In both cases the plan is repeated continuously.
+For robot $r_2$ we represented two different paths as well.
+P2 represents a possible plan ---due to the uncertainty of the door between cells 14 and 20--- where $r_2$ synchronizes with $r_1$ in order to accomplish action 2.
+P2' is a similar path with the difference that the synchronization is performed in cell 9, where the it is uncertain.
+In both cases the plan is repeated continuously.
+Finally, P3 represents a possible path where robot $r_3$ accomplishes action 4 and then action 5 in cell 18.
+Then, it performs the same action continuously.
+\sergio{label paths in the picture}
+We produced a video that shows how to execute the tool and its performance. 
+It is available in~\footnote{https://goo.gl/jYeLbm}.
 
-\claudio{Create a video, as an example consider \url{https://www.youtube.com/watch?v=Upf473cSD7A&feature=youtu.be}
-P.s. IMovie is a good instrument
-}
 %The results achieved and presented in~\cite{mapmaker17} can be replicated using this models.
 %They are loaded and set as MATLAB workspace variables in the second component.
 
@@ -67,7 +79,6 @@ P.s. IMovie is a good instrument
 \label{fig:outputexample}
 \end{center}
 \end{figure}
-\claudio{Change this figure use the one showed by the tool}
 
 %In~\cite{mapmaker17}  we have shown that our tool is able to perform a plan even in environments full of uncertainty.
 %Thus, \toolName~ is able to compute a plan where other planners will not.
