@@ -6,14 +6,14 @@ The results obtained by performing this procedure are sound and correct.
 Additional details and proofs can be found in~\cite{mapmaker17}.
 
 
-\toolName\ is executed as shown in Listing~\ref{lst:command}, where \texttt{model} is a Matlab file containing the model of the environment and the robots and \texttt{missions} encode the mission that must be satisfied by each robot.
+\toolName\ is executed as shown in Listing~\ref{lst:command}, where \texttt{RQ} means the research question to be answered, what determine the possible experiments to be performed.
+\texttt{Scenario} is a Matlab file containing the model of the environment and the robots and \texttt{Experiment} encode the mission that must be satisfied by each robot.
 This files must be currently manually written by the developer.
 
 
 \begin{lstlisting}[frame=single, backgroundcolor=\color{light-gray}, basicstyle=\footnotesize\ttfamily, language=Java, numbers=left, numberstyle=\tiny\color{black},caption= {Running \toolName}\label{lst:command}, captionpos=b]
 mapmaker_exp('RQ', 'Scenario', 'Experiment')
 \end{lstlisting}
-\claudio{Fix the previous with the current command}
 
 %The tool is composed by several MATLAB-based scripts that can be executed independently for performing certain functions.
 %In order to use \toolName it is sufficient to launch the function \emph{mapmaker\_exp} where the \emph{research question}, the \emph{example} or map of the environment and the \emph{experiment} to check are their arguments.
@@ -28,17 +28,22 @@ mapmaker_exp('RQ', 'Scenario', 'Experiment')
 
 When  \toolName\ is launched a graphical interface similar to the one presented  in Figure~\ref{fig:outputexample} is showed.
 The grid represents the environment in which robot are moving.
-Each cell represents a location of the environment. 
+Each cell represents a location of the environment and has a number associated, as labeled in some of them.
 Robots are represented by the squared colored boxes.
 Actions are used to encode movement, i.e., each robot can move left, right, up and down.
 A robot  cannot move between adjacent cells if they are separated by thick bordered lines.
 Whenever  it is unclear if a robot can move between adjacent cells, these cells are separated by a red border.
 Each service is associated with a number.
 Whenever a service can be provided by a robot in a cell, the cell is labeled with the corresponding number.
-Finally, synchronization capabilities are showed by... \claudio{To be added}.
-The graphical interface shows plan execution.
-Assume for example that the robots $r_1$, $r_2$ and $r_3$ has the following missions: 
-\claudio{Add the missions of the paper}
+Finally, synchronization capabilities are represented by a black cross.
+If it is unclear if two robots can synchronize in a cell, the cell is labeled with a green cross.
+The graphical interface shows the plan execution.
+Assume for example that the robots $r_1$, $r_2$ and $r_3$ have the following \emph{local missions}.
+Robot $r_1$ has to perform the action 1, which is present in cells 7 and 9---note that the missions associated with each robot are colored with the color used for representing the robot.
+Action 1 and action 2 (which has to be accomplished by robot $r_2$) are located in a cell labeled with a cross, so robot must meet there and perform both actions at the same time.
+Robot $r_1$ can also perform this mission in cell 9, but it is unsure the synchronization in this cell.
+As explained before, robot $r_2$ must synchronize with robot $r_1$ and perform action 2, but then it has to reach cell 22 for performing action 3.
+Finally, robot $r_2$ has to perform action 4 in cell 2 and action 5, which can be possible executed in cell 18 or in cell 30.
 
 \claudio{Explain the same example of the paper by showing the plans in Figure 2}
 
@@ -57,7 +62,7 @@ P.s. IMovie is a good instrument
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=1\linewidth]{Figures/motivatingExample.pdf}
+\includegraphics[width=1\linewidth]{Figures/arrows.pdf}
 \caption{\toolName\ usage scenario.}
 \label{fig:outputexample}
 \end{center}
