@@ -7,14 +7,17 @@ Additional details and proofs can be found in~\cite{mapmaker17}.
 
 
 \toolName\ can be executed in two ways, as shown in Listing~\ref{lst:command}.
+With the first one we provide a way of replicating the experiments showed in this paper and in~\cite{mapmaker17}.
 \texttt{Scenario} is a Matlab file containing the model of the environment and the robots and \texttt{Experiment} encode the mission that must be satisfied by each robot.
-The first option is the general way of executing the tool, using custom scenarios and experiments developed by the user.
-In the second option the research question \texttt{RQ} that we tried to answer in this paper has to be specified.
-This option is used for replicating the results that we present in~\cite{mapmaker17}.
+Then, the research question \texttt{RQ} answered in this paper has to be specified.
+The second option is used for executing custom models of environments and robots performing experiments developed by the user.
+\texttt{robots} specify the number of robots, and their models.
+Then, \texttt{environment} contains a model of the environment.
+Finally, \texttt{missions} contains all the local missions to be achieved by each robot.
 
 \begin{lstlisting}[frame=single, backgroundcolor=\color{light-gray}, basicstyle=\footnotesize\ttfamily, language=Java, numbers=left, numberstyle=\tiny\color{black},caption= {Running \toolName}\label{lst:command}, captionpos=b]
-mapmaker_exp 'Scenario', 'Experiment')
-mapmaker_exp 'Scenario', 'Experiment', 'RQ')
+mapmaker_exp('Scenario', 'Experiment', 'RQ')
+mapmakerRunner(robots, environment , missions);
 \end{lstlisting}
 
 %The tool is composed by several MATLAB-based scripts that can be executed independently for performing certain functions.
