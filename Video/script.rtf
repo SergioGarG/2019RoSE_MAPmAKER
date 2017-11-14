@@ -8,11 +8,14 @@
 \f0\fs24 \cf0 1. Title\
 2. Scope, high level problem introduction\
 	2.1. Robot cannot go through a door\
-	2.2. Debris\
-	2.3. Robots cannot synchronise\
+	2.2. Service not provided anymore\
+	2.3. Debris\
 3. Tool diagram steps\
 4. How to launch the tool\
 5. Videos of the tool being executed \
+	5.1. Dealing with uncertainty in transitions\
+	5.2. Dealing with uncertainty in services\
+	5.3. Dealing with uncertainty in synchronization\
 6. Example of robot recalculating its path\
 \
 1. Welcome to the video presentation of MAPmAKER!\
@@ -23,7 +26,7 @@ It means that our system is able to perform planning with only partial informati
 Let\'92s try to make it clear with an example.\
 A robot is deployed in an environment with different rooms where different actions can be performed.\
 For this example, the robot is commanded to fetch a fist aid kit that is supposed to be present in different rooms.\
-However, what we don\'92t know is if the path to the goal is clear for the robot (for instance, if doors are open or closed) or if the kits are still there. \'97emphasise with the cursor circling the ? Symbols)\
+However, what we don\'92t know is if the path to the goal is clear for the robot (for instance, if doors are open or closed) or if the kits are available. \'97click so the different uncertainties and arrows appear\'97\
 In order to achieve its commanded mission, the robot computes the plan to the closest room that should contain a first aid kit. \'97first click so the dashed line with the plan appears\'97\
 Then the robot tries to perform the plan, but in this case the it finds that the robot is closed, blocking the path. \'97click so the closed door appears\'97\
 It then has to recompute its plan to the closest room where the mission can be accomplished. \'97click so the robot detect the open door\'97\
@@ -41,7 +44,7 @@ the model of the environment  and \'97click for highlight the missions\'97 \
 the missions to be achieved by each robot \'97click for highlight the three\'97\
 are taken as inputs of the planner \'97click for highlight the planner\'97.\
 It computes plans that allow to achieve missions based on its inputs.\
-This plans can be \\emph\{definitive\} or \\emph\{possible\}, depending if it ensure the satisfaction of the mission or if it may satisfy the local mission due to some unknown information about the model of the robots or the environment in which they are deployed. \'97click for highlight the plan selector\'97\
+This plans can be \'93definitive\'94 or \'93possible\'94, depending if it ensure the satisfaction of the mission or if it may satisfy the local mission due to some unknown information about the model of the robots or the environment in which they are deployed. \'97click for highlight the plan selector\'97\
 The plan selector selects the shortest path between the two previously stated. \'97click for highlight the error\'97\
 If MAPmAKER is not able to find neither a definitive nor a possible plan a message is sent to the user \'97click for highlight the plan executor\'97\
 Then, MAPmAKER executes the plan and displays its performance on the screen.\
@@ -53,7 +56,43 @@ MAPmAKER updates the models with the detected information.\
 If MAPmAKER detects that a plan is not anymore executable, the planner is re-executed.\
 \
 4. Now we will show hot to launch MAPmAKER.\
-In a general case, the user will want to use their own custom robot and environment models and their own missions.\
+In a general case, the user will want to use their own custom robot and environment models with their own missions.\
 They should be variables present in the workspace. \
+We provide the folder named \'93Example\'94 with scripts that, if executed, load these variables.\
+First we load the model of the environment (both real and partial) and the model of the robots along with their initial positions. \'97syst file\'97\
+Now we execute the script that loads the mission for each robot. \'97missions file\'97\
+Now we have all the required variables so we can execute the command mapmakerRunner. \'97passing the cursor over the workspace\'97\
+\
+The second way of executing the tool is used for replicating the experiments explained in the paper and stored in the folder \'93Replication Package\'94.\
+We have to specify the scenario to be used, \'97passing the cursor over \'93scenario\'94\'97\
+the name of the experiment \'97passing the cursor over \'93experiment\'94\'97\
+and optionally the research question to be answered \'97passing the cursor over \'93RQ\'94\'97\
+\
+5. The videos now shown show MAPmAKER during its execution and dealing with uncertainty in complex scenarios.\
+\
+First, let\'92s see how the tool deals with uncertainty in the transitions between cells.\
+A plan is computed for each robot and the shortest one for robot 1 includes a transition under partial knowledge.\
+Robot 1 approaches the transition marked with red and checks its state \'97wait to the robot to approach to the transition\'97\
+In this case the robot detects that cannot go through it so a new plan has to be computed for this Robot 1.\
+The new plan also includes a transition under partial knowledge \'97wait to the robot to approach to the transition\'97\
+Yay! Robot 1 can go through and accomplish its mission.\
+\
+The second scenario shows the same environment where the provision of some actions is uncertain.\
+Robot 1 must achieve action 1, that is provided in different cells.\
+The shortest plan for robot 1 includes an action which provision is not certain. \'97wait to the robot to approach to the service\'97\
+In this case action 1 is not provided anymore in this cell, so a new plan must be computed. \'97wait to the robot to approach to the service\'97\
+This time robot 1 was luckier and could accomplish its mission.\
+\
+The third example shows two robots that have to synchronise in order to perform an action together.\
+As in the previous examples, a cell were the synchronisation is not assured is part of the shortest plan.\'97wait to the robot to approach to the synchronisation\'97\
+And\'85 yes, as expected, the synchronisation is not possible anymore there.\
+So, each robot recomputes a plan for perform the synchronisation \'97wait to the robot to approach to the synchronisation\'97\
+Mission complete!\
+\
+6. We conclude showing ho the tool behaves when it cannot find a possible solution.\
+\
+\
+\
+\
 \
 }
