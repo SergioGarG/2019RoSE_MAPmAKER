@@ -10,10 +10,12 @@ Additional details and proofs can be found in~\cite{mapmaker17}.
 With the first one we provide a way of replicating the experiments showed in this paper and in~\cite{mapmaker17}.
 \texttt{Scenario} is a Matlab file containing the model of the environment and the robots and \texttt{Experiment} encode the mission that must be satisfied by each robot.
 Then, the research question \texttt{RQ} answered in this paper has to be specified.
+
 The second option is used for executing custom models of environments and robots performing experiments developed by the user.
-\texttt{robots} specify the number of robots, and their models.
-Then, \texttt{environment} contains a model of the environment.
+\texttt{robots} is a variable that specify the number of robots and their models.
+Then, \texttt{environment} is a variable that contains a model of the environment and its uncertainty.
 Finally, \texttt{missions} contains all the local missions to be achieved by each robot.
+In~\footnote{https://goo.gl/jYeLbm} we provide a folder called \emph{Example} with the scripts used during the attached video for loading this three last variables.
 
 \begin{lstlisting}[frame=single, backgroundcolor=\color{light-gray}, basicstyle=\footnotesize\ttfamily, language=Java, numbers=left, numberstyle=\tiny\color{black},caption= {Running \toolName}\label{lst:command}, captionpos=b]
 mapmaker_exp('Scenario', 'Experiment', 'RQ')
@@ -50,7 +52,7 @@ Robot $r_1$ can also perform this mission in cell 9, but it is unsure the synchr
 As explained before, robot $r_2$ must synchronize with robot $r_1$ and perform action 2, but then it has to reach cell 22 for performing action 3.
 Finally, robot $r_3$ has to perform action 4 in cell 2 and action 5, which can be possibly executed in cell 18 or in cell 30.
 
-In figure~\ref{fig:outputexample} we represented different plans performed by the robots. 
+In Figure~\ref{fig:outputexample} we represented different plans performed by the robots. 
 Starting from robot $r_1$, there are two different plans that could be performed.
 P1 represents a definitive plan and P1' a possible plan where a true evidence was detected by the robot.
 In those paths the robot basically reaches the cell where the action can be performed with the help of robot $r_2$ and moves away. 
@@ -61,7 +63,6 @@ P2' is a similar path with the difference that the synchronization is performed 
 In both cases the plan is repeated continuously.
 Finally, P3 represents a possible path where robot $r_3$ accomplishes action 4 and then action 5 in cell 18.
 Then, it performs the same action continuously.
-\sergio{label paths in the picture}
 We produced a video that shows how to execute the tool and its performance. 
 It is available in~\footnote{https://goo.gl/jYeLbm}.
 
