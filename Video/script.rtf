@@ -2,15 +2,58 @@
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 {\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh14900\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 1. Title\
 2. Scope, high level problem introduction\
 	2.1. Robot cannot go through a door\
-	2.2. Derrumbamiento\
-	2.3. Robots cannot synchronize\
+	2.2. Debris\
+	2.3. Robots cannot synchronise\
 3. Tool diagram steps\
 4. How to launch the tool\
 5. Videos of the tool being executed \
-6. Example of robot recalculating its path}
+6. Example of robot recalculating its path\
+\
+1. Welcome to the video presentation of MAPmAKER!\
+MAPmAKER is a tool that is able to perform multi robot LTL planning under uncertainty.\
+\
+2. What do we mean with uncertainty?\
+It means that our system is able to perform planning with only partial information of the environment.\
+Let\'92s try to make it clear with an example.\
+A robot is deployed in an environment with different rooms where different actions can be performed.\
+For this example, the robot is commanded to fetch a fist aid kit that is supposed to be present in different rooms.\
+However, what we don\'92t know is if the path to the goal is clear for the robot (for instance, if doors are open or closed) or if the kits are still there. \'97emphasise with the cursor circling the ? Symbols)\
+In order to achieve its commanded mission, the robot computes the plan to the closest room that should contain a first aid kit. \'97first click so the dashed line with the plan appears\'97\
+Then the robot tries to perform the plan, but in this case the it finds that the robot is closed, blocking the path. \'97click so the closed door appears\'97\
+It then has to recompute its plan to the closest room where the mission can be accomplished. \'97click so the robot detect the open door\'97\
+Yes! In this case the door is open so the robot can access to the room.\
+This situation can have different outcomes, as for example: \'97click so the robot detect the kit\'97\
+The first aid kit is there and the robot can bring it to the user and finish its mission\
+\'97click so the kit dissappears\'97\
+The first aid kit is not there so the robot has to keep looking for it or communicate to the user that the mission is not feasible\
+Or\'85 \'97click so the debris fell\'97 some serious situations in certain scenarios.\
+\
+3. Let\'92s continue with a conceptual diagram of our MAPmAKER.\
+It was developed as a MATLAB standalone application where \'97click for highlight the robots\'97\
+the models of the robots, \'97click for highlight the environment\'97 \
+the model of the environment  and \'97click for highlight the missions\'97 \
+the missions to be achieved by each robot \'97click for highlight the three\'97\
+are taken as inputs of the planner \'97click for highlight the planner\'97.\
+It computes plans that allow to achieve missions based on its inputs.\
+This plans can be \\emph\{definitive\} or \\emph\{possible\}, depending if it ensure the satisfaction of the mission or if it may satisfy the local mission due to some unknown information about the model of the robots or the environment in which they are deployed. \'97click for highlight the plan selector\'97\
+The plan selector selects the shortest path between the two previously stated. \'97click for highlight the error\'97\
+If MAPmAKER is not able to find neither a definitive nor a possible plan a message is sent to the user \'97click for highlight the plan executor\'97\
+Then, MAPmAKER executes the plan and displays its performance on the screen.\
+\'97click for highlight the monitor\'97\
+As robots perform plans, information about uncertain parts of the model is detected. \
+\'97click for highlight the update\'97\
+MAPmAKER updates the models with the detected information.\
+\'97click for highlight the triggers\'97\
+If MAPmAKER detects that a plan is not anymore executable, the planner is re-executed.\
+\
+4. Now we will show hot to launch MAPmAKER.\
+In a general case, the user will want to use their own custom robot and environment models and their own missions.\
+They should be variables present in the workspace. \
+\
+}
