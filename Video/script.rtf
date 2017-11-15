@@ -21,23 +21,42 @@
 1. Welcome to the video presentation of MAPmAKER!\
 MAPmAKER is a tool that is able to perform multi robot LTL planning under uncertainty.\
 \
-2. What do we mean with uncertainty?\
-It means that our system is able to perform planning with only partial information of the environment.\
-Let\'92s try to make it clear with an example.\
+2.  \'97Hospital\'97\
+Nowadays robots are used in a wide range of situations, as for example hospitals performing different chores. \'97while video of the robot moving autonomously is shown\'97\
+These environments are topically dynamic so we only have partial information of them.\
+We present MAPmAKER,  a high-level planner that works with only partial information.\
+Let\'92s try to make it clear with an example. \'97we show the screen of the example\'97\
 A robot is deployed in an environment with different rooms where different actions can be performed.\
 For this example, the robot is commanded to fetch a fist aid kit that is supposed to be present in different rooms.\
 However, what we don\'92t know is if the path to the goal is clear for the robot (for instance, if doors are open or closed) or if the kits are available. \'97click so the different uncertainties and arrows appear\'97\
 In order to achieve its commanded mission, the robot computes the plan to the closest room that should contain a first aid kit. \'97first click so the dashed line with the plan appears\'97\
-Then the robot tries to perform the plan, but in this case the it finds that the robot is closed, blocking the path. \'97click so the closed door appears\'97\
+Then the robot tries to perform the plan, but in this case the it finds that the door is closed, blocking the path. \'97click so the closed door appears\'97\
 It then has to recompute its plan to the closest room where the mission can be accomplished. \'97click so the robot detect the open door\'97\
 Yes! In this case the door is open so the robot can access to the room.\
 This situation can have different outcomes, as for example: \'97click so the robot detect the kit\'97\
 The first aid kit is there and the robot can bring it to the user and finish its mission\
-\'97click so the kit dissappears\'97\
+\'97click so the kit disappears\'97\
 The first aid kit is not there so the robot has to keep looking for it or communicate to the user that the mission is not feasible\
 Or\'85 \'97click so the debris fell\'97 some serious situations in certain scenarios.\
 \
-3. Let\'92s continue with a conceptual diagram of our MAPmAKER.\
+2.  \'97Apocalypses!\'97\
+Nowadays robots are used in a wide range of situations, as for example in catastrophic zones performing different tasks as scouting and recognition, avoiding risks for human beings. \'97while video of Fukushima is shown\'97\
+The map of such environments is not completely known, so a deployed team of robots should be able to compute plans using only partial knowledge.\
+We present MAPmAKER,  a high-level planner that works with only partial information.\
+Let\'92s try to make it clear with an example. \'97we show the screen of the example\'97\
+A robot is deployed in a semi-demolished nuclear power plant with different rooms where different actions can be performed.\
+For this example, the robot is commanded to look for nuclear wastes, that are supposed to be present in several rooms.\
+However, what we don\'92t know is if the path to the goal is clear for the robot (for instance, if there are debris blocking the way) or if there are actually nuclear wastes. \'97click so the different uncertainties and arrows appear\'97\
+In order to achieve its commanded mission, the robot computes the plan to the closest room where the presence of nuclear wastes is expected. \'97first click so the dashed line with the plan appears\'97\
+Then the robot tries to perform the plan, but in this case the it finds that the path is blocked by rocks. \'97click so the rocks fall\'97\
+It then has to recompute its plan to the closest room where the mission can be accomplished. \'97click so the robot detect the open door\'97\
+Yes! In this case the path is clear so the robot can access to the room.\
+This situation can have different outcomes, as for example: \'97click so the robot detect the kit\'97\
+There are nuclear wastes here and the robot can detect them and inform to the users, accomplishing its mission.\
+\'97click so the wastes disappear\'97\
+There are no nuclear wastes here so the robot has to keep looking for it or communicate to the user that the mission is not feasible\
+\
+3. Let\'92s continue with a conceptual diagram of MAPmAKER.\
 It was developed as a MATLAB standalone application where \'97click for highlight the robots\'97\
 the models of the robots, \'97click for highlight the environment\'97 \
 the model of the environment  and \'97click for highlight the missions\'97 \
