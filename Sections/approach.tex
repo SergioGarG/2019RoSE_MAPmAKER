@@ -7,7 +7,7 @@ The implemented planner is able to compute plans that definitely ensure the miss
 More precisely, a \emph{definitive plan} is a sequence of actions that ensure the satisfaction of the local mission for each robot. 
 A \emph{possible plan} is a sequence of actions that may satisfy the local mission due to some unknown information about the model of the robots or the environment in which they are deployed. 
 If \toolName\ is not able to find neither a definitive nor a possible plan a message is sent to the user (\circled{6}).
-Otherwise an appropriate component is used to choose between definitive and a possible plans (if both are present) or simply chooses the possible plan if no definitive plan is present.
+Otherwise an appropriate component is used to choose between definitive and possible plans (if both are present) or simply chooses the possible plan if no definitive plan is present.
 Definitive plans are not present when the only way to satisfy the local mission is based on some unknown information about the model of the robots or the environment in which they are deployed. 
 \toolName\ then executes the selected plan (\circled{7}).
 
@@ -66,7 +66,7 @@ Thus, in order to allow robot $r_1$ to fulfill its mission it is necessary that 
 The \emph{Planner}  uses the models of the robot(s) and the environment in order to compute plans that allow satisfying the missions of the robots.
 The planner decomposes the robots within the robotic application into dependency classes based on the mission that each robot has to achieve.
 Each dependency class contains a subset of robots that depend on each other for achieving their missions.
-After  dependency classes are computed they are considered in isolation in the computation of plans that allow robots satisfying their missions.
+After  dependency classes are computed they are considered in isolation regarding the computation of plans that allow robots to satisfy their missions.
 
 To compute a plan for a dependency class the  LTL formulae that are used to describe missions are evaluated on partial models.
 Possible and definitive plans are computed by executing a classical planning algorithm twice: once for computing possible plans and once for computing definitive plans.
@@ -83,13 +83,14 @@ Several policies can be applied to choose between these plans.
 Possible plans can be chosen only in cases in which a definitive plan is  not present.
 Another policy may choose the plan with the shortest length, or it may consider non-functional aspects of the plans e.g., time to perform certain actions, or likelihood of detecting true or false evidence about partial information. 
 In this work we assume  that the planner always chooses the shortest between the possible and the definitive plan.
-This policy may for example reduce energy consumption.%, since every action performed by the robots may consume energy. 
-Thus, shorter plans require less energy.
+This policy may for example reduce energy consumption, since every action performed by the robots may consume energy. 
+%Thus, shorter plans require less energy.
 
 \textbf{Detection of uncertain information.}
-As robots perform actions and navigate within the environment information about uncertain actions services and meeting capabilities is detected.
+As robots perform actions and navigate within the environment, information regarding uncertain actions services and meeting capabilities can be detected.
 Specifically, robots detect whether actions, services and meeting capabilities are executable, provided, and possible, respectively.
-\toolName\ updates the models of the robots and their environment with the detected information and the planning algorithm is triggered (if needed).
+\toolName\ updates the models of the robots and their environment with the detected information.
+Then, if needed, the planning algorithm is triggered and re-executed.
 %This information is shared with the rest of the team so it can be take into account for further planning.
 
 

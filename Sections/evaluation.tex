@@ -9,7 +9,7 @@ This is done by comparing our planner with one that is only able to compute defi
 The results can be summarized as follows.
 \toolName\ is effective when  a possible plan is selected, and the robot discovers during the plan execution 
 that unknown actions, services and meeting capabilities are executable, provided and possible, respectively.
-\toolName\ is also effective in the cases in which a possible plan  is computed, the possible plan can actually be performed and a classical planning algorithm cannot compute a definitive plan.
+\toolName\ is also effective in the cases in which a possible plan  is computed, it can actually be performed and a classical planning algorithm cannot compute a definitive plan.
 This situation occurs in the cases in which the only way to fulfill a mission involve some partial information present in the model.
 When \toolName\ chooses a definitive plan it is as effective as a classical planner that is only able to compute definitive plans.
 \toolName\ is not effective whenever a possible plan is chosen but  unknown actions, services and meeting capabilities turned to be not executable, provided and possible, respectively.
@@ -18,7 +18,8 @@ More information about the considered examples, experimental set up and the obta
 To answer RQ2 we analyzed the advantages of the decentralized procedure provided by \toolName.
 We had considered the set of partial models considered in the previous experiments. 
 We added an additional robot, i.e., robot $r_3$, which has a mission that can be achieved without collaborating with neither  robot $r1$ nor with robot $r2$. 
-We then perform the run \toolName\ with the decentralized procedure enabled and disabled and we compare performances. 
+We then execute \toolName\ with the decentralized procedure enabled and disabled. 
+Then, we compare each performance. 
 When \toolName\ was executed with the  decentralized procedure it computed two dependency classes; one containing robots $r_1$ and $r_2$ and one containing robot $r_3$. 
 Viceversa, when the decentralized procedure was disabled, \toolName\ 
 analyzed a single team containing  robots $r_1$, $r_2$, and $r_3$. 

@@ -13,14 +13,14 @@ Current robotic applications require planners to address two main challenges:
 
 Tractability refers to the capability of computer algorithms in solving problems. 
 Several works studied centralized planners that are able to manage \emph{teams} of robots that collaborate to achieve a certain goal (a global mission)~\cite{kloetzer2011multi,loizou2005automated,quottrup2004multi}.
-However, planning is computationally expensive especially when the number of robots within the team increases and they need to collaborate to fulfill their local missions.
+However, planning is computationally expensive, especially when the number of robots within the team is increased and they need to collaborate to fulfill their local missions.
 For this reason research interest had focused on decomposing a global mission into a set of local missions to be achieved by each robot of the team~\cite{schillinger2016decomposition,guo2015multi,guo2015multi,tumova2016multi}. 
 These local missions have been recently exploited by \emph{decentralized} planners~\cite{tumova2016multi}, i.e., planners that instead of evaluating the global mission over the whole team of robots, analyze the satisfaction of local missions inside a subset of the team of robots. 
 In this way, the problem of finding a collective team behavior is decomposed into sub-problems that avoid the expensive fully centralized planning. 
 However, the applicability of these algorithms has never been studied when only partial knowledge about the system is available.
 
 The role of partial knowledge in software development has been strongly studied in literature.
-Research has been done on how to consider partial knowledge in requirement analysis and elicitation~\cite{menghi2017integrating,menghi2017cover,letier2008deriving}, in the development of a model of the system that satisfies a set of desired properties~\cite{uchitel2009synthesis,uchitel2013supporting,famelis2012partial,albarghouthi2012under,Bernasconi2017} and in checking   whether an  already designed models possess some properties of interest~\cite{menghi2016dealing,bruns1999model,chechik2004multi}.
+Research has been done on how to consider partial knowledge in requirement analysis and elicitation~\cite{menghi2017integrating,menghi2017cover,letier2008deriving}, in the development of a model of the system that satisfies a set of desired properties~\cite{uchitel2009synthesis,uchitel2013supporting,famelis2012partial,albarghouthi2012under,Bernasconi2017} and in checking   whether an  already designed model possess some properties of interest~\cite{menghi2016dealing,bruns1999model,chechik2004multi}.
 However, most of the existing planners assume that the environment in which the robots are deployed is known~\cite{7139412}. 
 This assumption does not usually hold in real word scenarios~\cite{lahijanian2016iterative}  where, for example,  the robots navigate in environments affected by natural disasters, where the movement between locations or the execution of specific actions may be impossible due to structural collapses, flooding etc.
 The planners that consider  partial information about the environment in which the robots operate (e.g.,~\cite{roy2006planning,du2012robot,diaz2001exploring}) usually rely on probabilistic algorithms and are not  \emph{decentralized}.
@@ -44,7 +44,7 @@ This work presents  \toolName: a Multi-robot plAnner for PArtially Known EnviRon
 %\toolName\ modifies~\cite{tumova2016multi} by supporting partial knowledge.
 Decentralization is realized by decomposing the robotic team into subclasses based on their missions, and then by running a classical planning algorithm.
 Partial knowledge is handled by calling several times  a classical planning algorithm.
-The theory that supports \toolName\ including proofs of correctness, a detailed description of the modelling formalisms and the verification procedures can be found in~\cite{mapmaker17}\footnote{This paper is made available for the reviewers   at  \url{https://goo.gl/hrCvyo}}.
+The theory that supports \toolName\ including proofs of correctness, a detailed description of the modelling formalisms and the verification procedures can be found in~\cite{mapmaker17}\footnote{This paper is made available for the reviewers   at  \url{https://goo.gl/di8LE2}}.
 \toolName\ is evaluated by analysing its behaviour on a robot application obtained from the RobotCup Logistics League competition~\cite{karrasrobocup} and on a robotic application working in an apartment of about 80 m$^2$~\cite{map}.
 %, which is part ofa large residential facility for senior citizens.
 The \toolName\ tool together with 
@@ -53,7 +53,7 @@ The \toolName\ tool together with
 \item a set of videos showing \toolName\ in action computing and solving the scenarios presented at the previous bullet, and
 \item a brief user guide which defines the functionalities provided by our tool
 \end{enumerate*}
- are available at ~\url{https://goo.gl/GY7ZrG}. 
+ are available at ~\url{https://goo.gl/di8LE2}. 
 
 This paper is organized as follows. 
 Section~\ref{sec:approach} presents an overview of \toolName.

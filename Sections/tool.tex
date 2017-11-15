@@ -1,17 +1,17 @@
 
 \toolName\  was developed as a  MATLAB~\cite{matlab} standalone application.
-It is developed on top of an existing  planner presented in~\cite{tumova2016multi} which has been chosen since it already implements a decentralized planning procedure.
+It is developed on top of an existing planner ---presented in~\cite{tumova2016multi}--- which has been chosen since it already implements a decentralized planning procedure.
 \toolName\ calls this planner twice considering two different versions of the model of the robots and their environments. 
 The results obtained by performing this procedure are sound and correct.
 Additional details and proofs can be found in~\cite{mapmaker17}.
 
 
 \toolName\ can be executed in two ways, as shown in Listing 1.
-The first option is used for computing plans on environment and robots custom models and missions.
+The first option is used to compute plans for custom missions in custom models of environment and robots.
 \texttt{robots} is a variable that specify the number of robots and their models.
 Then, \texttt{environment} is a variable that contains a model of the environment and its uncertainty.
-Finally, \texttt{missions} contains all the local missions to be achieved by each robot.
-With the second option we provide a way of replicating the experiments showed in this paper and in~\cite{mapmaker17}.
+Finally, \texttt{missions} contains the local mission to be achieved by each robot.
+With the second option we provide a way of replicating the experiments presented in this paper and in~\cite{mapmaker17}.
 \texttt{Scenario} is a Matlab file containing the model of the environment and the robots and \texttt{Experiment} encode the mission that must be satisfied by each robot.
 Then, the research question \texttt{RQ} to be answered can be specified.
 
@@ -33,34 +33,34 @@ mapmaker_exp('Scenario', 'Experiment', 'RQ')
 %In a normal case where the scenarios are already defined, the only components of the architecture depicted in~\ref{fig:overview} that are used are the \emph{Replication Package}, the \emph{Robot \& Environment models with uncertainty}, the \emph{Planner} itself and its inputs and, of course, the \emph{Solutions container}.
 %The first component represents a folder where the models of the robot and environment with a certain added uncertainty for the selected experiment are stored.
 
-When  \toolName\ is launched a graphical interface similar to the one presented  in Figure~\ref{fig:outputexample} is showed.
-The grid represents the environment in which robot are moving.
+When  \toolName\ is executed a graphical interface similar to the one presented  in Figure~\ref{fig:outputexample} is showed.
+The grid represents the environment in which the robots are moving.
 Each cell represents a location of the environment and has a number associated, as labeled in some of them.
 Robots are represented by the squared colored boxes.
 Actions are used to encode movement, i.e., each robot can move left, right, up and down.
 A robot  cannot move between adjacent cells if they are separated by thick bordered lines.
 Whenever  it is unclear if a robot can move between adjacent cells, these cells are separated by a red border.
 Each service is associated with a number.
-Whenever a service can be provided by a robot in a cell, the cell is labeled with the corresponding number.
+Whenever a service can be provided by a robot in a cell, the cell is labeled with the corresponding number and the color of the corresponding robot.
 Finally, synchronization capabilities are represented by a black cross.
 If it is unclear if two robots can synchronize in a cell, the cell is labeled with a green cross.
 The graphical interface shows the plan execution.
 Assume for example that the robots $r_1$, $r_2$ and $r_3$ have the following \emph{local missions}.
-Robot $r_1$ has to perform the action 1, which is present in cells 7 and 9---note that the missions associated with each robot are colored with the color used for representing the robot.
-Action 1 and action 2 (which has to be accomplished by robot $r_2$) are located in a cell labeled with a cross, so robot must meet there and perform both actions at the same time.
+Robot $r_1$ has to perform service 1, which is provided in cells 7 and 9.
+Service 1 and service 2 (which has to be accomplished by robot $r_2$) are located in a cell labeled with a cross, so robots must meet there and perform both actions at the same time.
 Robot $r_1$ can also perform this mission in cell 9, but it is unsure the synchronization in this cell.
-As explained before, robot $r_2$ must synchronize with robot $r_1$ and perform action 2, but then it has to reach cell 22 for performing action 3.
-Finally, robot $r_3$ has to perform action 4 in cell 2 and action 5, which can be possibly executed in cell 18 or in cell 30.
+As explained before, robot $r_2$ must synchronize with robot $r_1$ and perform service 2, but then it has to reach cell 22 for performing action 3.
+Finally, robot $r_3$ has to perform service 4 in cell 2 and serice 5, which can be possibly executed in cell 18 or in cell 30.
 
 In Figure~\ref{fig:outputexample} we show different plans that can be performed by the robots. 
 They all accomplish a number of actions in a periodic fashion.
 Robot $r_1$, could accomplish two different plans.
 P1 represents a definitive plan and P1' a possible plan where a true evidence was detected by the robot.
-In both paths the robot reaches the cell where the requested action can be performed with the help of robot $r_2$.
+In both paths the robot reaches the cell where the requested service can be performed with the help of robot $r_2$.
 For robot $r_2$ we show two different paths as well.
-P2 represents a possible plan ---due to the uncertainty of the transition between cells 14 and 20--- where $r_2$ must synchronize with $r_1$ in order to accomplish action 2.
-P2' is a similar path with the difference that the synchronization is not assured in the target cell.
-Finally, P3 represents a possible path where robot $r_3$ accomplishes action 4 and then action 5 in cell 18.
+P2 represents a possible plan ---due to the uncertainty of the transition between cells 14 and 20--- where $r_2$ must synchronize with $r_1$ in order to accomplish service 2.
+P2' is a similar path with the difference that the synchronization is not assured in the associated cell.
+Finally, P3 represents a possible path where robot $r_3$ accomplishes service 4 and service action 5 in cell 18.
 
 %The results achieved and presented in~\cite{mapmaker17} can be replicated using this models.
 %They are loaded and set as MATLAB workspace variables in the second component.
