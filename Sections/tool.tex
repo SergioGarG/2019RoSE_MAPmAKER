@@ -11,7 +11,7 @@ The first option is used to compute plans for custom missions in custom models o
 \texttt{robots} is a variable that specify the number of robots and their models.
 Then, \texttt{environment} is a variable that contains a model of the environment and its uncertainty.
 Finally, \texttt{missions} contains the local mission to be achieved by each robot.
-With the second option we provide a way of replicating the experiments presented in this paper and in~\cite{mapmaker17}.
+With the second option, we provide a way of replicating the experiments presented in this paper and in~\cite{mapmaker17}.
 \texttt{Scenario} is a Matlab file containing the model of the environment and the robots and \texttt{Experiment} encode the mission that must be satisfied by each robot.
 Then, the research question \texttt{RQ} to be answered can be specified.
 
@@ -50,13 +50,13 @@ Robot $r_1$ has to perform service 1, which is provided in cells 7 and 9.
 Service 1 and service 2 (which has to be accomplished by robot $r_2$) are located in a cell labeled with a cross, so robots must meet there and perform both actions at the same time.
 Robot $r_1$ can also perform this mission in cell 9, but it is unsure the synchronization in this cell.
 As explained before, robot $r_2$ must synchronize with robot $r_1$ and perform service 2, but then it has to reach cell 22 for performing action 3.
-Finally, robot $r_3$ has to perform service 4 in cell 2 and serice 5, which can be possibly executed in cell 18 or in cell 30.
+Finally, robot $r_3$ has to perform service 4 in cell 2 and service 5, which can be possibly executed in cell 18 or in cell 30.
 
 In Figure~\ref{fig:outputexample} we show different plans that can be performed by the robots. 
 They all accomplish a number of actions in a periodic fashion.
 Robot $r_1$, could accomplish two different plans.
 P1 represents a definitive plan and P1' a possible plan where a true evidence was detected by the robot.
-In both paths the robot reaches the cell where the requested service can be performed with the help of robot $r_2$.
+In both paths, the robot reaches the cell where the requested service can be performed with the help of robot $r_2$.
 For robot $r_2$ we show two different paths as well.
 P2 represents a possible plan ---due to the uncertainty of the transition between cells 14 and 20--- where $r_2$ must synchronize with $r_1$ in order to accomplish service 2.
 P2' is a similar path with the difference that the synchronization is not assured in the associated cell.

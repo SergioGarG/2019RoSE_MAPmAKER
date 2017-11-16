@@ -7,7 +7,7 @@ The implemented planner is able to compute plans that definitely ensure the miss
 More precisely, a \emph{definitive plan} is a sequence of actions that ensure the satisfaction of the local mission for each robot. 
 A \emph{possible plan} is a sequence of actions that may satisfy the local mission due to some unknown information about the model of the robots or the environment in which they are deployed. 
 If \toolName\ is not able to find neither a definitive nor a possible plan a message is sent to the user (\circled{6}).
-Otherwise an appropriate component is used to choose between definitive and possible plans (if both are present) or simply chooses the possible plan if no definitive plan is present.
+Otherwise, an appropriate component is used to choose between definitive and possible plans (if both are present) or simply chooses the possible plan if no definitive plan is present.
 Definitive plans are not present when the only way to satisfy the local mission is based on some unknown information about the model of the robots or the environment in which they are deployed. 
 \toolName\ then executes the selected plan (\circled{7}).
 
@@ -18,24 +18,24 @@ If \toolName\  detects that a plan is not anymore executable, the planner is re-
 
 
 
-In the following we provide some additional information about the inputs processed  by \toolName, the planning algorithm, the selection between definitive and possible plans and how models are updated when information about uncertain parts is detected.
+In the following, we provide some additional information about the inputs processed  by \toolName, the planning algorithm, the selection between definitive and possible plans and how models are updated when information about uncertain parts is detected.
 
 
 
 
 \textbf{Models of the robots and their environment}. 
 The models of the robots and their environments are provided using a specific form of transition system that allows the specification of uncertain parts that is described  in~\cite{mapmaker17}.
-These models describe the initial positions of the robots, the maps that describes the environment where robots are deployed and how robots can move between different locations of the map. 
+These models describe the initial positions of the robots, the map that describes the environment where robots are deployed and how robots can move between different locations of the map. 
 Furthermore, the proposed models embed partial knowledge as follows:\\
 %\textbf{Uncertainties supported by \toolName}.
-$\bullet$  \emph{Partial knowledge about the actions execution.} 
+$\bullet$  \emph{Partial knowledge about the actions' execution.} 
 The execution of certain action is uncertain meaning that it is unclear whether the action can be executed.
-This type of partial knowledge allows specifying that the transition between two of the cells that conform the grid map of the environment can be:
+This type of partial knowledge allows specifying that the transition between two of the cells that form the grid map of the environment can be:
 always possible, always not possible (i.e. a wall), not known (i.e. a door between two rooms that can be open or closed).\\
 $\bullet$ \emph{Unknown service provisioning.} 
 It is unclear  whether a service can be provided or not in a specific location. 
 For example, it is unclear whether a robot can take a picture of an item in a given map location.
-This  uncertainty may be caused for example by the presence of an unexpected object that cover the robot visual in that location.\\
+This  uncertainty may be caused for example by the presence of an unexpected object that covers the robot visual in that location.\\
 $\bullet$ \emph{Unknown meeting capabilities.} Robots can meet and synchronize in certain locations.
 For example, it is unclear whether two robots can exchange a load in a given map location.
 This uncertainty may be caused by a collapsing registered in the environment where the robots are deployed.
@@ -54,7 +54,7 @@ This uncertainty may be caused by a collapsing registered in the environment whe
 
 \textbf{Mission specification.}
 Each robot is able to perform a complex mission, which is specified using an LTL formula.
-These formula specifies how the services must be provided by the robots.
+This formula specifies how the services must be provided by the robots.
 For example, a mission for a robot $r_1$ may require $r_1$ to  periodically load debris on $r_2$.
 Thus, in order to allow robot $r_1$ to fulfill its mission it is necessary that robots $r_1$ and $r_2$ synchronize their behaviours.
 
@@ -83,13 +83,13 @@ Several policies can be applied to choose between these plans.
 Possible plans can be chosen only in cases in which a definitive plan is  not present.
 Another policy may choose the plan with the shortest length, or it may consider non-functional aspects of the plans e.g., time to perform certain actions, or likelihood of detecting true or false evidence about partial information. 
 In this work we assume  that the planner always chooses the shortest between the possible and the definitive plan.
-This policy may for example reduce energy consumption, since every action performed by the robots may consume energy. 
+This policy may, for example, reduce energy consumption, since every action performed by the robots may consume energy. 
 %Thus, shorter plans require less energy.
 
 \textbf{Detection of uncertain information.}
 As robots perform actions and navigate within the environment, information regarding uncertain actions services and meeting capabilities can be detected.
 Specifically, robots detect whether actions, services and meeting capabilities are executable, provided, and possible, respectively.
-\toolName\ updates the models of the robots and their environment with the detected information.
+\toolName\ updates the models of the robots and of the environment with the detected information.
 Then, if needed, the planning algorithm is triggered and re-executed.
 %This information is shared with the rest of the team so it can be take into account for further planning.
 
