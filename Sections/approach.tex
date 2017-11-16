@@ -16,15 +16,7 @@ As robots perform plans, information about uncertain parts of the model is detec
 If \toolName\  detects that a plan is not anymore executable, the planner is re-executed (\circled{9}).
 
 
-
-
-<<<<<<< HEAD
-In the following we provide some additional information about the input processed  by \toolName, the planning algorithm, the selection between definitive and possible plans and how models are updated when information about uncertain parts is detected.
-=======
 In the following, we provide some additional information about the inputs processed  by \toolName, the planning algorithm, the selection between definitive and possible plans and how models are updated when information about uncertain parts is detected.
->>>>>>> 33a7008837827d33407d0972947aae4b48698b6e
-
-
 
 
 \textbf{Models of the robots and their environment}. 
@@ -68,7 +60,8 @@ Thus, in order to allow robot $r_1$ to fulfill its mission, it is necessary that
 
 \textbf{Planning.} 
 The \emph{Planner} uses the models of the robot(s) and the environment in order to compute plans that allow satisfying the missions of the robots.
-\ugh{The planner decomposes the robots within the robotic application} into dependency classes based on the mission that each robot has to achieve.
+%\ugh{The planner decomposes the robots within the robotic application}
+The planner distributes the robots within the robotic application into dependency classes based on the mission that each robot has to achieve.
 Each dependency class contains a subset of robots that depend on each other for achieving their missions.
 After  dependency classes are computed they are considered in isolation regarding the computation of plans that allow robots to satisfy their missions.
 
@@ -91,7 +84,7 @@ This policy may, for example, reduce energy consumption, since every action perf
 %Thus, shorter plans require less energy.
 
 \textbf{Detection of uncertain information.}
-As robots perform actions and navigate within the environment, information regarding uncertain \ugh{actions services} and meeting capabilities can be detected.
+As robots perform actions and navigate within the environment, information regarding uncertain services and meeting capabilities can be detected.
 Specifically, robots detect whether actions, services and meeting capabilities are executable, provided, and possible, respectively.
 \toolName\ updates the models of the robots and of the environment with the detected information.
 Then, if needed, the planning algorithm is triggered and re-executed.

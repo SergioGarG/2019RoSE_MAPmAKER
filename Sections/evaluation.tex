@@ -9,7 +9,13 @@ This is done by comparing our planner with one that is only able to compute defi
 The results can be summarized as follows.
 \toolName\ is effective when  a possible plan is selected, and the robot discovers during the plan execution 
 that unknown actions, services, and meeting capabilities are executable, provided, and possible, respectively.
-\toolName\ \ugh{is also effective in the cases in which a possible plan  is computed, it can actually be performed and a classical planning algorithm cannot compute a definitive plan.} 
+%\toolName\ \ugh{is also effective in the cases in which a possible plan  is computed, it can actually be performed and a classical planning algorithm cannot compute a definitive plan.} 
+\toolName\ is also effective when this three conditions are given:
+\begin{enumerate*}
+\item a possible plan is computed;
+\item the possible plan can actually be performed; and 
+\item a classical planning algorithm cannot compute a definitive plan.
+\end{enumerate*}
 This situation occurs in the cases in which the only way to fulfill a mission involves some partial information present in the model.
 When \toolName\ chooses a definitive plan, it is as effective as a classical planner that is only able to compute definitive plans.
 \toolName\ is not effective whenever a possible plan is chosen but  unknown actions, services, and meeting capabilities turned to be not executable, provided, and possible, respectively.
