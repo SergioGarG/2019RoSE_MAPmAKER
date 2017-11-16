@@ -18,7 +18,11 @@ If \toolName\  detects that a plan is not anymore executable, the planner is re-
 
 
 
+<<<<<<< HEAD
 In the following we provide some additional information about the input processed  by \toolName, the planning algorithm, the selection between definitive and possible plans and how models are updated when information about uncertain parts is detected.
+=======
+In the following, we provide some additional information about the inputs processed  by \toolName, the planning algorithm, the selection between definitive and possible plans and how models are updated when information about uncertain parts is detected.
+>>>>>>> 33a7008837827d33407d0972947aae4b48698b6e
 
 
 
@@ -54,7 +58,7 @@ This uncertainty may be caused by a collapsing registered in the environment whe
 
 \textbf{Mission specification.}
 Each robot is able to perform a complex mission, which is specified using an LTL formula.
-These formula specifies how the services must be provided by the robots.
+This formula specifies how the services must be provided by the robots.
 For example, a mission for a robot $r_1$ may require $r_1$ to  periodically load debris on $r_2$.
 Thus, in order to allow robot $r_1$ to fulfill its mission, it is necessary that robots $r_1$ and $r_2$ synchronize their behaviours.
 
@@ -83,13 +87,13 @@ Several policies can be applied to choose between these plans.
 Possible plans can be chosen only in cases in which a definitive plan is  not present.
 Another policy may choose the plan with the shortest length, or it may consider non-functional aspects of the plans e.g., time to perform certain actions, or likelihood of detecting true or false evidence about partial information. 
 In this work we assume  that the planner always chooses the shortest between the possible and the definitive plan.
-This policy may for example reduce energy consumption, since every action performed by the robots may consume energy. 
+This policy may, for example, reduce energy consumption, since every action performed by the robots may consume energy. 
 %Thus, shorter plans require less energy.
 
 \textbf{Detection of uncertain information.}
 As robots perform actions and navigate within the environment, information regarding uncertain \ugh{actions services} and meeting capabilities can be detected.
 Specifically, robots detect whether actions, services and meeting capabilities are executable, provided, and possible, respectively.
-\toolName\ updates the models of the robots and their environment with the detected information.
+\toolName\ updates the models of the robots and of the environment with the detected information.
 Then, if needed, the planning algorithm is triggered and re-executed.
 %This information is shared with the rest of the team so it can be take into account for further planning.
 

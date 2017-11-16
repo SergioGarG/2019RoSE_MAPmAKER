@@ -2,7 +2,7 @@
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 {\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh14900\viewkind0
+\paperw11900\paperh16840\margl1440\margr1440\vieww10560\viewh14680\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 1. Title\
@@ -23,7 +23,7 @@
 MAPmAKER is a tool that is able to perform multi robot LTL planning under uncertainty.\
 \
 2.  \'97Hospital\'97\
-Nowadays robots are used in a wide range of situations, as for example hospitals performing different chores. \'97while video of the robot moving autonomously is shown\'97\
+Nowadays robots are used in a wide range of situations, as for example hospitals, performing different chores. \'97while video of the robot moving autonomously is shown\'97\
 These environments are topically dynamic so we only have partial information of them.\
 We present MAPmAKER,  a high-level planner that works with only partial information.\
 Let\'92s try to make it clear with an example. \'97we show the screen of the example\'97\
@@ -31,31 +31,14 @@ A robot is deployed in an environment with different rooms where different actio
 For this example, the robot is commanded to fetch a fist aid kit that is supposed to be present in different rooms.\
 However, what we don\'92t know is if the path to the goal is clear for the robot (for instance, if doors are open or closed) or if the kits are available. \'97click so the different uncertainties and arrows appear\'97\
 In order to achieve its commanded mission, the robot computes the plan to the closest room that should contain a first aid kit. \'97first click so the dashed line with the plan appears\'97\
-Then the robot tries to perform the plan, but in this case the it finds that the door is closed, blocking the path. \'97click so the closed door appears\'97\
+Then the robot tries to perform the plan, but in this case it finds that the door is closed, blocking the path. \'97click so the closed door appears\'97\
 It then has to recompute its plan to the closest room where the mission can be accomplished. \'97click so the robot detect the open door\'97\
 Yes! In this case the door is open so the robot can access to the room.\
 This situation can have different outcomes, as for example: \'97click so the robot detect the kit\'97\
-The first aid kit is there and the robot can bring it to the user and finish its mission\
+The first aid kit is there and the robot can bring it to the user and finishes its mission\
 \'97click so the kit disappears\'97\
-Or\'85 \'97click so the debris fell\'97 someone replaced it by other items during an emergency.\
+Or\'85 \'97click so the bed replaces the kit\'97 someone replaced it by other items during an emergency.\
 If the first aid kit is not there the robot has to keep looking for it or communicate to the user that the mission is not feasible.\
-\
-2.  \'97Apocalypses!\'97\
-Nowadays robots are used in a wide range of situations, as for example in catastrophic zones performing different tasks as scouting and recognition, avoiding risks for human beings. \'97while video of Fukushima is shown\'97\
-The map of such environments is not completely known, so a deployed team of robots should be able to compute plans using only partial knowledge.\
-We present MAPmAKER,  a high-level planner that works with only partial information.\
-Let\'92s try to make it clear with an example. \'97we show the screen of the example\'97\
-A robot is deployed in a semi-demolished nuclear power plant with different rooms where different actions can be performed.\
-For this example, the robot is commanded to look for nuclear wastes, that are supposed to be present in several rooms.\
-However, what we don\'92t know is if the path to the goal is clear for the robot (for instance, if there are debris blocking the way) or if there are actually nuclear wastes. \'97click so the different uncertainties and arrows appear\'97\
-In order to achieve its commanded mission, the robot computes the plan to the closest room where the presence of nuclear wastes is expected. \'97first click so the dashed line with the plan appears\'97\
-Then the robot tries to perform the plan, but in this case the it finds that the path is blocked by rocks. \'97click so the rocks fall\'97\
-It then has to recompute its plan to the closest room where the mission can be accomplished. \'97click so the robot detect the open door\'97\
-Yes! In this case the path is clear so the robot can access to the room.\
-This situation can have different outcomes, as for example: \'97click so the robot detect the kit\'97\
-There are nuclear wastes here and the robot can detect them and inform to the users, accomplishing its mission.\
-\'97click so the wastes disappear\'97\
-There are no nuclear wastes here so the robot has to keep looking for it or communicate to the user that the mission is not feasible\
 \
 3. Let\'92s continue with a conceptual diagram of MAPmAKER.\
 It was developed as a MATLAB standalone application where \'97click for highlight the robots\'97\
@@ -95,7 +78,9 @@ A plan is computed for each robot and the shortest one for robot 1 includes a tr
 Robot 1 approaches the transition marked with red and checks its state \'97wait to the robot to approach to the transition\'97\
 In this case the robot detects that cannot go through it so a new plan has to be computed for this Robot 1.\
 The new plan also includes a transition under partial knowledge \'97wait to the robot to approach to the transition\'97\
-Yay! Robot 1 can go through and accomplish its mission.\
+
+\i That\'92s it! 
+\i0 Robot 1 can go through and accomplish its mission.\
 \
 The second scenario shows the same environment where the provision of some actions is uncertain.\
 Robot 1 must achieve action 1, that is provided in different cells.\
@@ -111,7 +96,7 @@ Mission complete!\
 \
 6. We conclude showing ho the tool behaves when it cannot find a possible solution.\
 \
-7. Additional information about how is MAPmAKER able to compute plans for multi-robot applications under uncertainty can be found in the paper.\
+7. Additional information about how MAPmAKER is able to compute plans for multi-robot applications under uncertainty can be found in the paper.\
 \
 \
 \
