@@ -1,5 +1,5 @@
 Robotic applications usually rely on a set of robots that are used to perform missions.
-The term mission can refer to a \emph{global mission}, i.e., the high-level mission that must be accomplished by the whole team~\cite{quottrup2004multi} or a \emph{local mission}, i.e., the mission that should be achieved by a single robot possibly by collaborating with other robots~\cite{tumova2016multi}.
+The term mission can refer to a \emph{global mission}, i.e., the high-level mission that must be accomplished by the whole team~\cite{quottrup2004multi} or a \emph{local mission}, i.e., the mission that should be achieved by a single robot, possibly by collaborating with other robots~\cite{tumova2016multi}.
 %Every robot is commanded to achieve a local mission, specified as a LTL property.
 Planners are one of the main ingredients that allow robots to achieve  missions.
 A \emph{planner} is  a software component that receives as input a model of the robotic application and computes  a set of actions---a \emph{plan}--- that, if performed, allows the achievement of a desired mission~\cite{latombe2012robot}.
@@ -14,15 +14,15 @@ Current robotic applications require planners to address two main challenges:
 Tractability refers to the capability of computer algorithms in solving problems. 
 Several works studied centralized planners that are able to manage \emph{teams} of robots that collaborate to achieve a certain goal (a global mission)~\cite{kloetzer2011multi,loizou2005automated,quottrup2004multi}.
 However, planning is computationally expensive, especially when the number of robots within the team is increased and they need to collaborate to fulfill their local missions.
-For this reason research interest had focused on decomposing a global mission into a set of local missions to be achieved by each robot of the team~\cite{schillinger2016decomposition,guo2015multi,guo2015multi,tumova2016multi}. 
+For this reason, research interest had focused on decomposing a global mission into a set of local missions to be achieved by each robot of the team~\cite{schillinger2016decomposition,guo2015multi,guo2015multi,tumova2016multi}. 
 These local missions have been recently exploited by \emph{decentralized} planners~\cite{tumova2016multi}, i.e., planners that instead of evaluating the global mission over the whole team of robots, analyze the satisfaction of local missions inside a subset of the team of robots. 
 In this way, the problem of finding a collective team behavior is decomposed into sub-problems that avoid the expensive fully centralized planning. 
 However, the applicability of these algorithms has never been studied when only partial knowledge about the system is available.
 
 The role of partial knowledge in software development has been strongly studied in literature.
-Research has been done on how to consider partial knowledge in requirement analysis and elicitation~\cite{menghi2017integrating,menghi2017cover,letier2008deriving}, in the development of a model of the system that satisfies a set of desired properties~\cite{uchitel2009synthesis,uchitel2013supporting,famelis2012partial,albarghouthi2012under,Bernasconi2017} and in checking   whether an  already designed model possess some properties of interest~\cite{menghi2016dealing,bruns1999model,chechik2004multi}.
+Research has been done on how to consider partial knowledge in requirement analysis and elicitation~\cite{menghi2017integrating,menghi2017cover,letier2008deriving}, in the development of a model of the system that satisfies a set of desired properties~\cite{uchitel2009synthesis,uchitel2013supporting,famelis2012partial,albarghouthi2012under,Bernasconi2017} and in checking   whether an  already designed model possesses some properties of interest~\cite{menghi2016dealing,bruns1999model,chechik2004multi}.
 However, most of the existing planners assume that the environment in which the robots are deployed is known~\cite{7139412}. 
-This assumption does not usually hold in real word scenarios~\cite{lahijanian2016iterative}  where, for example,  the robots navigate in environments affected by natural disasters, where the movement between locations or the execution of specific actions may be impossible due to structural collapses, flooding etc.
+This assumption does not usually hold in real word scenarios~\cite{lahijanian2016iterative},  where, for example,  the robots navigate in environments affected by natural disasters, where the movement between locations or the execution of specific actions may be impossible due to structural collapses, flooding, etc.
 The planners that consider  partial information about the environment in which the robots operate (e.g.,~\cite{roy2006planning,du2012robot,diaz2001exploring}) usually rely on probabilistic algorithms and are not  \emph{decentralized}.
 %However, %to the best of our knowledge, 
 %literature considering \emph{decentralized} planners %have not been applied when 
