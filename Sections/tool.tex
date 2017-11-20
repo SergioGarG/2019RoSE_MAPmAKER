@@ -8,12 +8,12 @@ Additional details and proofs can be found in~\cite{mapmaker17}.
 
 \toolName\ can be executed in two ways, as shown in Listing~1.
 The first option is used to compute plans for custom missions in custom models of environment and robots.
-\texttt{robots} is a variable that specify the number of robots and their models.
+\texttt{robots} is a variable that specifies the number of robots and their models.
 Then, \texttt{environment} is a variable that contains a model of the environment and its uncertainty.
 Finally, \texttt{missions} contains the local mission to be achieved by each robot.
 With the second option, we provide a way of replicating the experiments presented in this paper and in~\cite{mapmaker17}.
-\texttt{Scenario} is a Matlab file containing the model of the environment and the robots and \texttt{Experiment} encode the mission that must be satisfied by each robot.
-Then, the research question \texttt{RQ} to be answered can be specified.
+\texttt{Scenario} is a Matlab file containing the model of the environment and the robots and \texttt{Experiment} encodes the mission that must be satisfied by each robot.
+Then, the research question \texttt{RQ} with which the two previous variables are associated must be specified ---e.g. RQ1 or RQ2.
 
 
 
@@ -34,23 +34,24 @@ mapmaker_exp('Scenario', 'Experiment', 'RQ')
 %The first component represents a folder where the models of the robot and environment with a certain added uncertainty for the selected experiment are stored.
 
 When  \toolName\ is executed a graphical interface similar to the one presented  in Figure~\ref{fig:outputexample} is showed.
+The figure is a screenshot showing the performance of our tool where we changed the size of some numbers and added the plans for helping the reader.
 The grid represents the environment in which the robots are moving.
 Each cell represents a location of the environment and has a number associated, as labeled in some of them.
-Robots are represented by the squared colored boxes.
+Robots are represented by squared colored boxes.
 Actions are used to encode movements, i.e., each robot can move left, right, up, and down.
 A robot  cannot move between adjacent cells if they are separated by thick bordered lines.
 Whenever  it is unclear if a robot can move between adjacent cells, these cells are separated by a red border.
-Each service is associated with a number.
-Whenever a service can be provided by a robot in a cell, the cell is labeled with the corresponding number and the color of the corresponding robot.
+%Each service is associated with a number.
+Whenever a service can be provided by a robot in a cell, the cell is labeled with the associated number and the color of the corresponding robot.
 Finally, synchronization capabilities are represented by a black cross.
 If it is unclear if two robots can synchronize in a cell, the cell is labeled with a green cross.
 The graphical interface shows the plan execution.
 Assume for example that the robots $r_1$, $r_2$, and $r_3$ have the following \emph{local missions}.
 Robot $r_1$ has to perform service 1, which is provided in cells 7 and 9.
 Service 1 and service 2 (which has to be accomplished by robot $r_2$) are located in a cell labeled with a cross, so robots must meet there and perform both actions at the same time.
-Robot $r_1$ can also perform this mission in cell 9, but it is unsure the synchronization in this cell.
-As explained before, robot $r_2$ must synchronize with robot $r_1$ and perform service 2, but then it has to reach cell 22 for performing action 3.
-Finally, robot $r_3$ has to perform service 4 in cell 2 and service 5, which can be possibly executed in cell 18 or in cell 30.
+Robot $r_1$ can also perform this mission in cell 9, but the synchronization in this cell is unsure.
+Robot $r_2$ must synchronize with robot $r_1$ and perform service 2, but then it has to reach cell 22 for performing action 3.
+Finally, robot $r_3$ has to perform service 4 in cell 2 and service 5 in cell 18 or in cell 30.
 
 In Figure~\ref{fig:outputexample} we show different plans that can be performed by the robots. 
 They all accomplish a number of actions in a periodic fashion.
@@ -74,8 +75,8 @@ Finally, P3 represents a possible path where robot $r_3$ accomplishes service 4 
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=1\linewidth]{Figures/arrows.pdf}
-\caption{\toolName\ usage scenario.\patrizio{is it possible to enlarge the labels in the figure?  It's not readable}}
+\includegraphics[width=1\linewidth]{Figures/arrows-v3.pdf}
+\caption{\toolName\ usage scenario.}
 \label{fig:outputexample}
 \end{center}
 \end{figure}

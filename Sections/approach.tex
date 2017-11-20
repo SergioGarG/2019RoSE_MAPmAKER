@@ -1,6 +1,6 @@
 
 An overview of \toolName\ is depicted in Fig.~\ref{fig:overview}.
-\toolName\ takes as input the models for the robots (\circled{1}) and of the environment in which they are deployed (\circled{2}) and the mission each robot should achieve (\circled{3}).
+\toolName\ takes as input the models of the robots (\circled{1}) and of the environment in which they are deployed (\circled{2}) and the mission each robot should achieve (\circled{3}).
 Both the models of the robots and their environment may be partial since there can be uncertainty about information contained in these models.
 \toolName\ uses the model of the environment and the robots to compute plans that allow the achievement of missions using an appropriate planner.
 The implemented planner is able to compute plans that definitely ensure the mission satisfaction, i.e., definitive plans  (\circled{4}), and plans that may ensure property satisfaction since they depend on some partial knowledge present in the models of the robots and the environment  (\circled{5}).
@@ -85,7 +85,7 @@ This policy may, for example, reduce energy consumption, since every action perf
 
 \textbf{Detection of uncertain information.}
 As robots perform actions and navigate within the environment, information regarding uncertain services and meeting capabilities can be detected.
-Specifically, robots detect whether actions, services and meeting capabilities are executable, provided, and possible, respectively.
+Specifically, robots detect whether actions, services, and meeting capabilities are executable, provided, and possible, respectively.
 \toolName\ updates the models of the robots and of the environment with the detected information.
 Then, if needed, the planning algorithm is triggered and re-executed.
 %This information is shared with the rest of the team so it can be take into account for further planning.
