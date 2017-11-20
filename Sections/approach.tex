@@ -61,7 +61,7 @@ Thus, in order to allow robot $r_1$ to fulfill its mission, it is necessary that
 \textbf{Planning.} 
 The \emph{Planner} uses the models of the robot(s) and the environment in order to compute plans that allow satisfying the missions of the robots.
 %\ugh{The planner decomposes the robots within the robotic application}
-The planner distributes the robots within the robotic application into dependency classes based on the mission that each robot has to achieve.
+The planner distributes the robots within the robotic application into subteams ---that we call ``dependency classes"--- based on the mission that each robot has to achieve.
 Each dependency class contains a subset of robots that depend on each other for achieving their missions.
 After  dependency classes are computed they are considered in isolation regarding the computation of plans that allow robots to satisfy their missions.
 
