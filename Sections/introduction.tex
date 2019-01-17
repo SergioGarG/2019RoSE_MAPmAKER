@@ -3,7 +3,8 @@ The term mission can refer to a \emph{global mission}, i.e., the high-level miss
 %Every robot is commanded to achieve a local mission, specified as a LTL property.
 Planners are one of the main ingredients that allow robots to achieve  missions.
 A \emph{planner} is  a software component that receives as input a model of the robotic application and computes  a set of actions---a \emph{plan}---that, if performed, allows the achievement of a desired mission~\cite{latombe2012robot}.
-%Each 
+Recent works in robotics have defined robot applications using finite transition systems and defining their local missions as an LTL property (e.g., \cite{guo2015multi,tumova2016multi}).
+LTL enables the enrichment of the specification of temporal goals that are used as input for planners.
 
 Current robotic applications require planners to address two main challenges: 
 \begin{enumerate*}
@@ -20,7 +21,7 @@ These local missions have been recently exploited by \emph{decentralized} planne
 In this way, the problem of finding a collective team behavior is decomposed into sub-problems that avoid the expensive fully centralized planning. 
 However, the applicability of these algorithms has never been studied when only partial knowledge about the system is available.
 
-\sergio{planners with ltl}
+
 
 The role of partial knowledge in software development has been strongly studied in literature.
 Research has been done on how to consider partial knowledge in requirement analysis and elicitation~\cite{menghi2017integrating,menghi2017cover,letier2008deriving}, in the development of a model of the system that satisfies a set of desired properties~\cite{uchitel2009synthesis,uchitel2013supporting,famelis2012partial,albarghouthi2012under,Bernasconi2017} and in checking   whether an  already designed model possesses some properties of interest~\cite{menghi2016dealing,bruns1999model,chechik2004multi}.
