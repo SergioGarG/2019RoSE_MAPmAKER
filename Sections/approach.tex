@@ -1,10 +1,10 @@
 
 An overview of \toolName\ is depicted in Fig.~\ref{fig:overview}.
-\toolName\ takes as input the models of the robots (\circled{1}) and of the environment in which they are deployed (\circled{2}) and the mission each robot should achieve (\circled{3}).
+MAPmAKER's planner takes as input the models of the robots (\circled{1}) and of the environment in which they are deployed (\circled{2}) and the mission each robot should achieve (\circled{3}).
 Both the models of the robots and their environment may be partial since there can be uncertainty about information contained in these models.
 \toolName\ uses the model of the environment and the robots to compute plans that allow the achievement of missions using an appropriate planner.
 The implemented planner is able to compute plans that definitely ensure the mission satisfaction, i.e., definitive plans  (\circled{4}), and plans that may ensure property satisfaction since they depend on some partial knowledge present in the models of the robots and the environment  (\circled{5}).
-More precisely, a \emph{definitive plan} is a sequence of actions that ensure the satisfaction of the local mission for each robot. 
+More precisely, a \emph{definitive plan} is a sequence of actions---e.g., move from \emph{a} to \emph{b}---that ensure the satisfaction of the local mission for each robot. 
 A \emph{possible plan} is a sequence of actions that may satisfy the local mission due to some unknown information about the model of the robots or the environment in which they are deployed. 
 If \toolName\ is not able to find neither a definitive nor a possible plan a message is sent to the user (\circled{6}).
 Otherwise, an appropriate component is used to choose between definitive and possible plans (if both are present) or simply chooses the possible plan if no definitive plan is present.
@@ -12,24 +12,23 @@ Definitive plans are not present when the only way to satisfy the local mission 
 \toolName\ then executes the selected plan (\circled{7}).
 
 As robots perform plans, information about uncertain parts of the model is detected.
-\toolName\ updates the  models with the detected information (\circled{8}).
-If \toolName\  detects that a plan is not anymore executable, the planner is re-executed (\circled{9}).
+\toolName\ updates the  models with the detected information (\circled{8}) and if it detects that a plan is not anymore executable, the planner is re-executed (\circled{9}).
 
 
 In the following, we provide some additional information about the inputs processed  by \toolName, the planning algorithm, the selection between definitive and possible plans and how models are updated when information about uncertain parts is detected.
 
 
 \textbf{Models of the robots and their environment}. 
-The models of the robots and their environments are provided using a specific form of transition system that allows the specification of uncertain parts; further information might be found in~\cite{mapmaker17}.
+The models of the robots and their environments are provided using a specific form of transition system that allows the specification of uncertain parts; further information might be found in~\cite{menghi2018multi}.
 These models describe the initial positions of the robots, the map describing the environment where robots are deployed, and how robots can move between different locations of the map. 
 Furthermore, the proposed models embed partial knowledge as follows:\\
 %\textbf{Uncertainties supported by \toolName}.
 $\bullet$  \emph{Partial knowledge about the actions execution.} 
 The execution of certain actions is uncertain, meaning that it is unclear whether an action can be executed.
-This type of partial knowledge allows specifying that the transition between two of the cells that conform the grid map of the environment can be:
+This type of partial knowledge allows specifying that the transition between two of the cells that conform the grid map of the environment (see Fig.~\ref{fig:outputexample}) can be:
 always possible, always impossible (i.e. a wall), not known (i.e. a door between two rooms that can be open or closed).\\
 $\bullet$ \emph{Unknown service provisioning.} 
-It is unclear  whether a service can be provided or not in a specific location. 
+It is unclear  whether a service---i.e.,  ``events of interest associated with execution of certain actions rather than over atomic propositions''~\cite{guo2015multi}---can be provided or not in a specific location. 
 For example, it is unclear whether a robot can take a picture of an item in a given map location.
 This  uncertainty may be caused for example by the presence of an unexpected object that covers the robot visual in that location.\\
 $\bullet$ \emph{Unknown meeting capabilities.} Robots can meet and synchronize in certain locations.
@@ -42,6 +41,7 @@ This uncertainty may be caused by a collapsing registered in the environment whe
 \includegraphics[width=1\linewidth]{Figures/MAPmAKER.pdf}
 \caption{Overview of  MAPmAKER.}
 \label{fig:overview}
+\vspace{-.5cm}
 \end{center}
 \end{figure}
 

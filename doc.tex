@@ -1,0 +1,279 @@
+\documentclass[10pt,conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\pdfminorversion=4
+%\overrideIEEEmargins
+\usepackage{pbox}
+
+\usepackage{framed,lipsum}
+\usepackage{microtype}
+%\usepackage[font=footnotesize]{caption}
+%\usepackage{float}
+\usepackage{booktabs} % For formal tables
+\usepackage{centernot}
+\usepackage[Algorithmus]{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{balance}
+
+\usepackage{graphicx}
+
+
+\usepackage{array}
+\usepackage{color}
+\usepackage{listings}
+%\usepackage[pdftex,bookmarks=false]{hyperref}
+%\hypersetup{colorlinks=true,urlcolor=black,linkcolor=black,citecolor=black}
+
+
+\newcommand \tab[1][1cm]{\hspace*{#1}}
+
+%\usepackage{framed,lipsum}
+%\usepackage{float}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{xtext}{RGB}{178, 14, 140}
+%Code listing style named "mystyle"
+\lstdefinestyle{mystyle}{
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\scriptsize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=none,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+%"mystyle" code listing set
+\lstset{style=mystyle}
+
+\usepackage{threeparttable}
+
+\usepackage{url}
+\usepackage{ltl}
+
+%\usepackage{booktabs} % For formal tables
+\usepackage{centernot}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath,amssymb,amsfonts}
+%\usepackage{balance}
+\let\labelindent\relax
+\usepackage[inline]{enumitem}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{tabularx}
+\usepackage{tabulary}
+\usepackage{threeparttable}
+\usepackage{rotating} %sidewaystable
+\usepackage{microtype}
+\usepackage{url}
+\usepackage[normalem]{ulem}
+\usepackage{chngpage}
+\usepackage{relsize}
+\usepackage{xspace}
+%\usepackage{cite}
+\usepackage{tcolorbox}
+
+\newcommand{\totalrequirements}{208}
+\newcommand{\notcoveredrequirements}{56}
+\newcommand{\unbounded}{\ensuremath{\mathcal{N}}}
+\newcommand{\bounded}{\ensuremath{\mathcal{T}}}
+\newcommand{\setrobot}{\ensuremath{\mathcal{R}}}
+\newcommand{\settasks}{\ensuremath{\mathcal{T}}}
+\newcommand{\setpatterns}{\ensuremath{\mathcal{P}}}
+\newcommand{\setareas}{\ensuremath{\mathcal{L}}}
+\newcommand{\setareasOrdered}{\ensuremath{\mathcal{L_O}}}
+\newcommand{\execute}{\ensuremath{\mathbb{E}}}
+\newcommand{\query}{\ensuremath{\mathbb{Q}}}
+\newcommand{\executeAll}{\ensuremath{\mathbb{E}_{All}}}
+\newcommand{\setconditions}{\ensuremath{\mathcal{C}}}
+
+\newcommand{\patternstoltl}{\ensuremath{\mathcal{PL}}}
+\newcommand{\planner}{\ensuremath{\mathcal{J}}}
+\newcommand{\execution}{\ensuremath{\mathcal{E}}}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
+\newboolean{showcomments}
+\setboolean{showcomments}{true} % toggle to show or hide comments
+\ifthenelse{\boolean{showcomments}}
+{\newcommand{\nb}[2]{
+		\fcolorbox{black}{yellow}{\bfseries\sffamily\scriptsize#1}
+		{\sf\small$\blacktriangleright$\textit{#2}$\blacktriangleleft$}
+	}
+	\newcommand{\version}{\emph{\scriptsize$-$working$-$}}
+}
+{\newcommand{\nb}[2]{}
+	\newcommand{\version}{}
+}
+\newcommand\patrizio[1]{\nb{Patrizio}{#1}}
+\newcommand\claudio[1]{\nb{Claudio}{#1}}
+\newcommand\sergio[1]{\nb{Sergio}{#1}}
+\newcommand\tb[1]{\nb{Thorsten}{#1}}
+\newcommand\tomas[1]{\nb{Tomas}{#1}}
+
+\usepackage{listings}
+\colorlet{light-gray}{gray!20}
+\newtheorem{remark}{Remark}
+\newtheorem{problem}{Problem}
+\usepackage[inline]{enumitem}
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+% Macros for proof-reading
+\usepackage[normalem]{ulem} % for \sout
+\usepackage{xcolor}
+\newcommand{\ra}{$\rightarrow$}
+\newcommand{\ugh}[1]{\textcolor{red}{\uwave{#1}}} % please rephrase
+\newcommand{\ins}[1]{\textcolor{blue}{\uline{#1}}} % please insert
+\newcommand{\del}[1]{\textcolor{red}{\sout{#1}}} % please delete
+\newcommand{\chg}[2]{\textcolor{red}{\sout{#1}}{\ra}\textcolor{blue}{\uline{#2}}} % please change
+
+\setlength{\belowcaptionskip}{-20pt}
+%\setlength{\textfloatsep}{1pt} 
+%\setlength{\intextsep}{1pt}
+
+\newcommand{\sera}{SERA\xspace}
+\newcommand\parhead[1]{\vspace{.26mm}\noindent\textbf{{#1}}.}
+
+\newcommand{\secref}[1]{Sec.\,\ref{#1}}
+\newcommand{\Secref}[1]{Sec.\,\ref{#1}} %use at beginning of sentences (no abbrev. allowed)
+\newcommand{\figref}[1]{Fig.\,\ref{#1}}
+\newcommand{\Figref}[1]{Figure\,\ref{#1}} % use at beginning of sentence (no abbrev. allowed)
+\newcommand{\tabref}[1]{Table\,\ref{#1}}
+\newcommand{\lstref}[1]{Listing\,\ref{#1}}
+
+\newcommand{\foot}[1]{\footnote{\url{#1}}}
+
+\newcommand{\Cite}[1]{~\cite{#1}}
+
+\newcommand{\toolName}{MAPmAKER}
+\newcommand{\APs}{\mathbf{\Pi}}
+\newcommand{\Lang}{\mathcal{L}} %language
+\newcommand{\Set}{\mathsf{S}} %set
+\newcommand{\Spec}{\mathbf{\Phi}}
+\newcommand{\Epsilon}{\mathcal{E}}
+\renewcommand{\i}{\iota}
+\newcommand{\Nat}{\mathbb{N}} %natural numbers
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Next}{\mathsf{X}}
+\newcommand{\Until}{\mathsf{U}}
+\newcommand{\Always}{\mathsf{G}}
+\newcommand{\Event}{\mathsf{F}}
+\newcommand{\false}{\mathit{false}}
+\newcommand{\true}{\mathit{true}}
+\newcommand{\trueval}{\ensuremath{\top}}
+\newcommand{\falseval}{\ensuremath{\bot}}
+\newcommand{\maybe}{\ensuremath{?}}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\prop}{\pi}
+\newcommand{\ie}{{i.e., }}
+\newcommand{\eg}{{e.g., }}
+\newcommand{\progressive}{\varpi}
+\newcommand{\move}{\mathit{move}}
+\newcommand{\h}{h}
+\renewcommand{\H}{H}
+\newcommand{\parti}{\mathit{P}}
+\newcommand{\Alpha}{\mathbf{\Sigma}}
+\renewcommand{\mod}{\mathrm{\, mod \, }}
+\newcommand{\suc}{\mathit{succ}}
+\newcommand{\dist}{\mathrm{dist}}
+\newcommand{\proj}{\mathrm{proj}}
+\newcommand{\parspace}{\vskip 0.05in}
+
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=black,      
+	urlcolor=blue,
+	citecolor=black
+}
+\urlstyle{same}
+
+
+
+\usepackage{cite}
+\IEEEoverridecommandlockouts   
+
+
+\begin{document}
+	
+	
+	\title{MAPmAKER: Performing Multi-Robot LTL Planning Under Uncertainty}
+
+	
+	\author{\IEEEauthorblockN{Sergio Garc\'{i}a\IEEEauthorrefmark{1}, 
+			Claudio Menghi\IEEEauthorrefmark{2}, and
+			Patrizio Pelliccione\IEEEauthorrefmark{1}\IEEEauthorrefmark{3}, 
+			}
+		\IEEEauthorblockA{\IEEEauthorrefmark{1}Chalmers $|$ University of Gothenburg, 
+			Gothenburg (Sweden)\\
+			\IEEEauthorrefmark{2} University of Luxembourg, 
+			Luxembourg City (Luxembourg)\\
+			\IEEEauthorrefmark{3} University of L'Aquila, 
+			L'Aquila (Italy)\\
+			Email: sergio.garcia@gu.se, claudio.menghi@uni.lu, patrizio.pelliccione@gu.se}
+	}	
+	
+	\maketitle
+
+	\begin{abstract}
+		\sergio{rewrite}
+		Robot applications are being increasingly used in real life to help humans performing dangerous, heavy, and/or monotonous tasks.
+		They usually rely on planners that given a robot or a team of robots compute plans that specify how the robot(s) can fulfill their missions.
+		Current robot applications ask for planners that make automated planning \emph{tractable}  and possible even when only \emph{partial knowledge} about the robot application is present, e.g., some information about the environment in which the robots are deployed is missing.
+		
+		This paper presents \toolName, a tool that aims to support run-time mission execution by tackling the previous challenges, i.e., it provides a decentralized planning solution that helps to reduce the planning overhead and  is able to work when only partial knowledge of the environment is present.
+		Decentralization is realized by decomposing the robotic team into subclasses based on their missions, and then by running a classical planning algorithm.
+		Partial knowledge is handled by calling several times  a classical planning algorithm.
+		
+		Demo video available at: \url{https://youtu.be/TJzC_u2yfzQ}
+	\end{abstract}
+	
+	\section{Introduction}
+	\input{Sections/introduction.tex}
+	
+	\section{MApMAKER's Overview}
+	\label{sec:approach}
+	\input{Sections/approach.tex}
+	
+	\section{MApMAKER in Action}
+	\label{sec:tool}
+	\input{Sections/tool.tex}
+	
+	
+	\section{Evaluation}
+	\label{sec:evaluation}
+	\input{Sections/evaluation.tex}
+	
+	
+	\section{Conclusions}
+	\label{sec:conclusion}
+	\input{Sections/conclusions.tex}
+
+
+
+	\balance
+	\bibliographystyle{IEEEtran}
+	\bibliography{sigproc}
+	
+\end{document}
