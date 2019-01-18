@@ -6,20 +6,20 @@ The results obtained by performing this procedure are sound and correct.
 Additional details and proofs can be found in~\cite{menghi2018multi}.
 
 
-\toolName\ can be executed in two ways, as shown in Listing~1.
+\toolName\ can be executed in two ways, as shown in Listing~\ref{lst:command}.
 The first option is used to compute plans for custom missions in custom models of environment and robots.
 \texttt{robots} is a variable that specifies the number of robots and their models.
 Then, \texttt{environment} is a variable that contains a model of the environment and its uncertainty.
 Finally, \texttt{missions} contains the local mission to be achieved by each robot.
 With the second option, we provide a way of replicating the experiments presented in this paper and in~\cite{menghi2018multi}.
 \texttt{Scenario} is a Matlab file containing the model of the environment and the robots and \texttt{Experiment} encodes the mission that must be satisfied by each robot.
-Then, the research question \texttt{RQ} with which the two previous variables are associated must be specified ---e.g. RQ1 or RQ2.
+Then, \texttt{Location} defines where the experiments are allocated---i.e., RQ1, RQ2, or RunningExample.
 
 
 
 \begin{lstlisting}[frame=single, backgroundcolor=\color{light-gray}, basicstyle=\footnotesize\ttfamily, language=Java, numbers=left, numberstyle=\tiny\color{black},caption= {Running \toolName}\label{lst:command}, captionpos=b]
 mapmakerRunner(robots, environment , missions);
-mapmaker_exp('Scenario', 'Experiment', 'RQ')
+mapmaker_exp('Scenario', 'Experiment', 'Location')
 \end{lstlisting}
 
 %The tool is composed by several MATLAB-based scripts that can be executed independently for performing certain functions.
