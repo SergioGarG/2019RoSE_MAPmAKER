@@ -3,13 +3,13 @@ The term mission can refer to a \emph{global mission}, i.e., the high-level miss
 %Every robot is commanded to achieve a local mission, specified as a LTL property.
 Planners are one of the main ingredients that allow robots to achieve  missions.
 A \emph{planner} is  a software component that receives as input a model of the robotic application and computes  a set of actions---a \emph{plan}---that, if performed, allows the achievement of a desired mission~\cite{latombe2012robot}.
-Recent works in robotics have defined robot applications using finite transition systems and \chg{defining}{some of them define} their local missions as \chg{an LTL}{a Linear-time Temporal Logic (LTL)} property (e.g., \cite{menghi2018multi,guo2015multi,tumova2016multi}).
-\del{LTL enables the enrichment of the specification of temporal goals that are used as input for planners.}
+Recent works in robotics have defined robot applications using finite transition systems and some of them define their local missions as a Linear-time Temporal Logic (LTL) property (e.g., \cite{menghi2018multi,guo2015multi,tumova2016multi}).
+%\del{LTL enables the enrichment of the specification of temporal goals that are used as input for planners.}
 
 Current robotic applications require planners to address two main challenges: 
 \begin{enumerate*}
 \item the planning problem should be solved by using algorithms that make the problem tractable;
-\item the planning algorithm should work also when (only) partial knowledge about the system---\ins{including} the robots and their working environment---is present.
+\item the planning algorithm should work also when (only) partial knowledge about the system---including the robots and their working environment---is present.
 \end{enumerate*}
 
 
@@ -51,7 +51,7 @@ This work presents  \toolName: a Multi-robot plAnner for PArtially Known EnviRon
 Decentralization is realized by decomposing the robotic team into subteams based on their missions, and then by running a classical planning algorithm.
 Partial knowledge is handled by calling twice a classical planning algorithm.
 The theory that supports \toolName\ including proofs of correctness, a detailed description of the modelling formalisms and the verification procedures can be found in~\cite{menghi2018multi}.
-\chg{We developed \toolName as proof of concepts to show how planners can deal with the previously stated features rather than as a tool to be used for real-world scenarios.}{In this paper we present the implementation of \toolName and we show how planners can deal with the previously stated features. In this sense the contribution is more a proof of concept than a tool ready to be used for real-world scenarios.}
+In this paper we present the implementation of \toolName and we show how planners can deal with the previously stated features. In this sense the contribution is more a proof of concept than a tool ready to be used for real-world scenarios.
 \toolName~builds upon the planner proposed by Tumova et al.~\cite{tumova2016multi}.
 \toolName\ is evaluated by analysing its behaviour on a robot application obtained from the RobotCup Logistics League competition~\cite{karrasrobocup} and on a robotic application working in an apartment of about 80 m$^2$~\cite{map}.
 %, which is part ofa large residential facility for senior citizens.
