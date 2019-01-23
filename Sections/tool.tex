@@ -1,5 +1,5 @@
 
-\toolName\  was developed as a  MATLAB~\cite{matlab} standalone application.
+\toolName\  \chg{was}{is} developed as a  MATLAB~\cite{matlab} standalone application.
 It is developed on top of an existing planner---presented in~\cite{tumova2016multi}---which has been chosen since it already implements a decentralized planning procedure.
 \toolName\ calls this planner twice considering two different versions of the model of the robots and their environments. 
 The results obtained by performing this procedure are sound and correct.
@@ -90,8 +90,9 @@ Finally, P3 is a definitive plan, which substitutes the location of service \emp
 \begin{figure}[htp]
 	\vspace{-.15cm}
 	\begin{center}
+		{\footnotesize
 		\subfloat{
-			\includegraphics[width=1\linewidth]{Figures/rose.png}
+			\includegraphics[width=.8\linewidth]{Figures/rose.png}
 			\label{fig:outputexample}
 		}
 		\vspace{.01cm}
@@ -103,7 +104,7 @@ Finally, P3 is a definitive plan, which substitutes the location of service \emp
 					$\phi_3=\Always ( \Event ($\emph{take\_snapshot}$\wedge \Event ($\emph{send\_info}$)))$: $r_3$ repeatedly takes pictures (service \emph{take\_snapshot}, action 4) and sends them using the communication network (service  \emph{send\_info}, action 5). 
 				}
 			}
-		}
+		}}
 		\caption{\toolName\ usage scenario.}
 		\label{fig:runningexample} 
 	\end{center}
