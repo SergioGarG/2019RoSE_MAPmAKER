@@ -33,45 +33,50 @@ mapmaker_exp('Scenario', 'Experiment', 'Location')
 %In a normal case where the scenarios are already defined, the only components of the architecture depicted in~\ref{fig:overview} that are used are the \emph{Replication Package}, the \emph{Robot \& Environment models with uncertainty}, the \emph{Planner} itself and its inputs and, of course, the \emph{Solutions container}.
 %The first component represents a folder where the models of the robot and environment with a certain added uncertainty for the selected experiment are stored.
 
-When  \toolName\ is executed a graphical interface similar to the one presented  in Figure~\ref{fig:outputexample} is showed.
-The figure is a screenshot showing the performance of our tool where we changed the size of some numbers and added the plans for helping the reader.
+When  \toolName\ is executed, a graphical interface similar to the one presented  in Fig.~\ref{fig:runningexample} is showed.
+The figure is a screenshot showing the performance of our tool where we changed the size of some numbers, added the plans, and labeled the right-side cells  for helping the reader.
 The grid represents the environment in which the robots are moving.
-Each cell represents a location of the environment and has a number associated, as labeled in some of them.
+Each cell represents a location of the environment and has a number associated. %, as labeled in some of them.
 Robots are represented by squared colored boxes.
-Actions are used to encode movements, i.e., each robot can move left, right, up, and down.
+Actions are used to encode movements (i.e., each robot can move left, right, up, and down) and skills of the robots (i.e. labeled actions from 1 to 5).
 A robot  cannot move between adjacent cells if they are separated by thick bordered lines.
 Whenever  it is unclear if a robot can move between adjacent cells, these cells are separated by a red border.
 %Each service is associated with a number.
-Whenever a service can be provided by a robot in a cell, the cell is labeled with the associated number and the color of the corresponding robot.
+Whenever a service can be provided by a robot in a cell, the cell is labeled with the associated action and the color of the corresponding robot.
 Finally, synchronization capabilities are represented by a black cross.
 If it is unclear if two robots can synchronize in a cell, the cell is labeled with a green cross.
+
 The graphical interface shows the plan execution.
-Assume for example that the robots $r_1$, $r_2$, and $r_3$ have the following \emph{local missions}.
-Robot $r_1$ has to perform service 1, which is provided in cells 7 and 9.
-Service 1 and service 2 (which has to be accomplished by robot $r_2$) are located in a cell labeled with a cross, so robots must meet there and perform both actions at the same time.
-Robot $r_1$ can also perform this mission in cell 9, but the synchronization in this cell is unsure.
-Robot $r_2$ must synchronize with robot $r_1$ and perform service 2, but then it has to reach cell 22 for performing action 3.
-Finally, robot $r_3$ has to perform service 4 in cell 2 and service 5 in cell 18 or in cell 30.
+Assume that the robots $r_1$, $r_2$, and $r_3$ have the \emph{local missions} defined in Fig.~\ref{fig:runningexample}.
+In a  hospital environment, $r_1$ is a dexterous mobile manipulator that aims at helping $r_2$, a heavy-duty mobile manipulator, with grasping certain medical supplies.
+It means $r_1$ and $r_2$ must meet in cells where service \emph{fetch\_supplies} is provided.
+Once these supplies are grasped, $r_2$ brings them to the surgery table in the middle of the room.
+In the meanwhile, $r_3$ takes pictures of the table and send them using the communication network.
 
-In Figure~\ref{fig:outputexample} we show different plans that can be performed by the robots. 
-They all accomplish a number of actions in a periodic fashion.
-Robot $r_1$ could accomplish two different plans.
-P1 represents a definitive plan and P1' a possible plan where a true evidence was detected by the robot.
-In both paths, the robot reaches the cell where the requested service can be performed with the help of robot $r_2$.
-For robot $r_2$ we show two different paths as well.
-P2 represents a possible plan ---due to the uncertainty of the transition between cells 14 and 20--- where $r_2$ must synchronize with $r_1$ in order to accomplish service 2.
-P2' is a similar path with the difference that the synchronization is not assured in the associated cell.
-Finally, P3 represents a possible path where robot $r_3$ accomplishes service 4 and service 5 in cell 18.
+%Robot $r_1$ has to perform service 1, which is provided in cells 7 and 9.
+%Service 1 and service 2 (which has to be accomplished by robot $r_2$) are located in a cell labeled with a cross, so robots must meet there and perform both actions at the same time.
+%Robot $r_1$ can also perform this mission in cell 9, but the synchronization in this cell is unsure.
+%Robot $r_2$ must synchronize with robot $r_1$ and perform service 2, but then it has to reach cell 22 for performing action 3.
+%Finally, robot $r_3$ has to perform service 4 in cell 2 and service 5 in cell 18 or in cell 30.
 
-\sergio{use something like this in the previous paragraph}
-The following missions were considered:
-\begin{enumerate*}
-	\item robot $r_1$ must achieve the mission $\Event (s_1 \wedge (\Event (s_2 \vee s_3) ))$. It had to reach a predefined destination where service  $s_1$ is provided, and then  perform either service $s_2$  or service $s_3$.
-	%This is a variation of  the sequencing pattern~\cite{kress2009temporal,yoo2016online}, which requires to first visit a location where the service $s_1$ is provided and then visit a location where the service $s_2$ or $s_3$ is provided.
-	\item robot $r_2$  must achieve the following mission $\Always(\Event(s_4 \vee s_5))$.
-	Furthermore, it aims at helping $r_1$ in providing service  $s_1$, i.e., robots $r_1$ and $r_2$ must meet in cells where  service $s_1$ is provided.
-	%This is a variation of the surveillance pattern~\cite{kress2009temporal,yoo2016online}, which requires to keep visiting locations where service $s_4$ or $s_5$ is provided.
-\end{enumerate*}
+The same figure also shows different plans that can be performed by the robots, accomplishing a number of actions in a periodic fashion.
+Every robot can perform different plans, but only some of them are showed to improve readability.
+P1' represents a possible plan where  true evidence was detected by the robot (in actions execution, service provisioning, and meeting capabilities), reaching the cell to accomplish service \emph{help\_grasping}, action 1 and meet with $r_2$.
+For robot $r_2$ we show two different paths.
+P2 is a definitive plan,  where $r_2$ must synchronize with $r_1$ to accomplish service \emph{fetch\_supplies}.
+P2 represents a possible plan (same uncertainty seen in P1') that performs similar actions to P2 but in another room.
+P3 represents a possible path where robot $r_3$ accomplishes action 4 in cell 11 and action 5 in cell 6.
+Finally, P3 is a definitive plan, which substitutes the location of service \emph{take\_snapshot} from 11 to 39.
+
+%\sergio{use something like this in the previous paragraph}
+%The following missions were considered:
+%\begin{enumerate*}
+%	\item robot $r_1$ must achieve the mission $\Event (s_1 \wedge (\Event (s_2 \vee s_3) ))$. It had to reach a predefined destination where service  $s_1$ is provided, and then  perform either service $s_2$  or service $s_3$.
+%	%This is a variation of  the sequencing pattern~\cite{kress2009temporal,yoo2016online}, which requires to first visit a location where the service $s_1$ is provided and then visit a location where the service $s_2$ or $s_3$ is provided.
+%	\item robot $r_2$  must achieve the following mission $\Always(\Event(s_4 \vee s_5))$.
+%	Furthermore, it aims at helping $r_1$ in providing service  $s_1$, i.e., robots $r_1$ and $r_2$ must meet in cells where  service $s_1$ is provided.
+%	%This is a variation of the surveillance pattern~\cite{kress2009temporal,yoo2016online}, which requires to keep visiting locations where service $s_4$ or $s_5$ is provided.
+%\end{enumerate*}
 
 %The results achieved and presented in~\cite{mapmaker17} can be replicated using this models.
 %They are loaded and set as MATLAB workspace variables in the second component.
@@ -82,15 +87,40 @@ The following missions were considered:
 %When all the robots have reached their goals or they realized that their local mission is not feasible the experiments concludes.
 %Once the experiment is concluded, the data extracted (as explained in~\ref{sec:approach}) is stored in the solutions container component.
 
-
-\begin{figure}[t]
-\begin{center}
-\includegraphics[width=1\linewidth]{Figures/arrows-v3.pdf}
-\caption{\toolName\ usage scenario. \sergio{add another figure with a high-level explanation of this one}}
-\label{fig:outputexample}
-\vspace{-.5cm}
-\end{center}
+\begin{figure}[htp]
+	\vspace{-.15cm}
+	\begin{center}
+		\subfloat{
+			\includegraphics[width=1\linewidth]{Figures/rose.png}
+			\label{fig:outputexample}
+		}
+		\vspace{.01cm}
+		\subfloat{%
+			 \fbox{
+				\parbox{0.95\linewidth}{
+					$\phi_1=\Always (\Event ($\emph{help\_grasping}$))$:  $r_1$ periodically helps $r2$ with grasping (service \emph{help\_grasping} associated with action 1). \\
+					$\phi_2=\Always (\Event($\emph{fetch\_supplies}$\wedge \Event ($\emph{deliver}$)))$: $r_2$ fetches heavy supplies (service \emph{fetch\_supplies}, action 2) and delivers them (service \emph{deliver}, action 3).\\
+					$\phi_3=\Always ( \Event ($\emph{take\_snapshot}$\wedge \Event ($\emph{send\_info}$)))$: $r_3$ repeatedly takes pictures (service \emph{take\_snapshot}, action 4) and sends them using the communication network (service  \emph{send\_info}, action 5). 
+				}
+			}
+		}
+		\caption{\toolName\ usage scenario.}
+		\label{fig:runningexample} 
+	\end{center}
 \end{figure}
+
+
+%\begin{figure}[t]
+%\begin{center}
+%\includegraphics[width=1\linewidth]{Figures/rose.png}
+%\caption{\toolName\ usage scenario. \sergio{add another figure with a high-level explanation of this one}}
+%\label{fig:outputexample}
+%\vspace{-.5cm}
+%\end{center}
+%\end{figure}
+
+
+
 
 %In~\cite{mapmaker17}  we have shown that our tool is able to perform a plan even in environments full of uncertainty.
 %Thus, \toolName~ is able to compute a plan where other planners will not.
