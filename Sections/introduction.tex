@@ -3,20 +3,19 @@ The term mission can refer to a \emph{global mission}, i.e., the high-level miss
 %Every robot is commanded to achieve a local mission, specified as a LTL property.
 Planners are one of the main ingredients that allow robots to achieve  missions.
 A \emph{planner} is  a software component that receives as input a model of the robotic application and computes  a set of actions---a \emph{plan}---that, if performed, allows the achievement of a desired mission~\cite{latombe2012robot}.
-Recent works in robotics have defined robot applications using finite transition systems and defining their local missions as an LTL property (e.g., \cite{guo2015multi,tumova2016multi}).
-LTL enables the enrichment of the specification of temporal goals that are used as input for planners.
+Recent works in robotics have defined robot applications using finite transition systems and some of them define their local missions as a Linear-time Temporal Logic (LTL) property (e.g., \cite{menghi2018multi,guo2015multi,tumova2016multi}).
+%\del{LTL enables the enrichment of the specification of temporal goals that are used as input for planners.}
 
 Current robotic applications require planners to address two main challenges: 
 \begin{enumerate*}
-\item the planning problem should be solved by using algorithms that make the problem tractable; \claudio{To me maybe we can relax the term tractable, because our planner does not make the problem tractable..
-		there are planners that work much better than ours. I would say only that work in a decentralized fashion.}
-\item the planning algorithm should work also when (only) partial knowledge about the system---the robots and their working environment---is present.
+\item the planning problem should be solved by using algorithms that make the problem tractable; \claudio{I am just a bit concern about the term Tractability since Mapmaker does not make the problem tractable.
+I suggest to remove it and just focus on decentralization.}
+\item the planning algorithm should work also when (only) partial knowledge about the system---including the robots and their working environment---is present.
 \end{enumerate*}
 
 
-\sergio{in the following paragraphs I cite several works to speak trying to give some background but also related work. Is it enough?}
-\claudio{Yes, I think it is more than sufficient. I am just a bit concern about the term Tractability since Mapmaker does not make the problem tractable.
-I suggest to remove it and just focus on decentralization.}
+%\sergio{in the following paragraphs I cite several works to speak trying to give some background but also related work. Is it enough?}
+
 Tractability refers to the capability of computer algorithms in solving problems. \claudio{I suggest to delete the previous sentence}
 Several works studied centralized planners that are able to manage \emph{teams} of robots that collaborate to achieve a certain goal (a global mission)~\cite{kloetzer2011multi,loizou2005automated,quottrup2004multi}.
 However, planning is computationally expensive, especially when the number of robots within the team is increased and they need to collaborate to fulfill their local missions.
@@ -28,7 +27,7 @@ However, the applicability of these algorithms has never been studied when only 
 
 
 The role of partial knowledge in software development has been strongly studied in literature.
-Research has been done on how to consider partial knowledge in requirement analysis and elicitation~\cite{menghi2017integrating,menghi2017cover,letier2008deriving}, in the development of a model of the system that satisfies a set of desired properties~\cite{uchitel2009synthesis,uchitel2013supporting,famelis2012partial,albarghouthi2012under,Bernasconi2017} and in checking   whether an  already designed model possesses some properties of interest~\cite{menghi2016dealing,bruns1999model,chechik2004multi}.
+Research has been done on how to consider partial knowledge in requirement analysis and elicitation~\cite{menghi2017integrating,menghi2017cover,letier2008deriving}, in the development of a model of the system that satisfies a set of desired properties~\cite{uchitel2009synthesis,uchitel2013supporting,famelis2012partial,albarghouthi2012under,Bernasconi2017}, and in checking   whether an  already designed model possesses some properties of interest~\cite{menghi2016dealing,bruns1999model,chechik2004multi}.
 However, most of the existing planners assume that the environment in which the robots are deployed is known~\cite{7139412}. 
 This assumption does not usually hold in real-word scenarios~\cite{lahijanian2016iterative},  where, for example,  the robots navigate in environments affected by natural disasters, where the movement between locations or the execution of specific actions may be impossible due to structural collapses, flooding, etc.
 The planners that consider  partial information about the environment in which the robots operate (e.g.,~\cite{roy2006planning,du2012robot,diaz2001exploring}) usually rely on probabilistic algorithms and are not  \emph{decentralized}.
@@ -53,14 +52,15 @@ This work presents  \toolName: a Multi-robot plAnner for PArtially Known EnviRon
 Decentralization is realized by decomposing the robotic team into subteams based on their missions, and then by running a classical planning algorithm.
 Partial knowledge is handled by calling twice a classical planning algorithm.
 The theory that supports \toolName\ including proofs of correctness, a detailed description of the modelling formalisms and the verification procedures can be found in~\cite{menghi2018multi}.
-We developed \toolName\ as proof of concepts to show how planners can deal with the previously stated features rather than as a tool to be used for real-world scenarios.
+In this paper we present the implementation of \toolName and we show how planners can deal with the previously stated features. In this sense the contribution is more a proof of concept than a tool ready to be used for real-world scenarios.
 \toolName~builds upon the planner proposed by Tumova et al.~\cite{tumova2016multi}.
-\toolName\ is evaluated by analysing its behaviour on a robot application obtained from the RobotCup Logistics League competition~\cite{karrasrobocup} and on a robotic application working in an apartment of about 80 m$^2$~\cite{map}.
+\toolName\ is evaluated by analysing its behaviour on a robot application simulating a hospital environment with the presence of random uncertainty.
+%obtained from the RobotCup Logistics League competition~\cite{karrasrobocup} and on a robotic application working in an apartment of about 80 m$^2$~\cite{map}.
 %, which is part ofa large residential facility for senior citizens.
 \toolName\  together with 
 \begin{enumerate*}
 \item a complete replication package,
-\item a set of videos showing \toolName\ in action computing and solving the scenarios presented at the previous bullet, and
+\item a set of videos showing \toolName\ in action computing and solving the scenario presented at the previous bullet, and
 \item a brief user guide that defines the functionalities provided by our tool
 \end{enumerate*}
  are available at ~\url{https://github.com/claudiomenghi/MAPmAKER/}. 

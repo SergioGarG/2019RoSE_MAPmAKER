@@ -1,5 +1,5 @@
 
-An overview of \toolName\ is depicted in Fig.~\ref{fig:overview}.
+An overview of \toolName\ is shown in Fig.~\ref{fig:overview}.
 MAPmAKER's planner takes as input the models of the robots (\circled{1}) and of the environment in which they are deployed (\circled{2}) and the mission each robot should achieve (\circled{3}).
 Both the models of the robots and their environment may be partial since there can be uncertainty about information contained in these models.
 \toolName\ uses the model of the environment and the robots to compute plans that allow the achievement of missions using an appropriate planner.
@@ -7,7 +7,7 @@ The implemented planner is able to compute plans that definitely ensure the miss
 More precisely, a \emph{definitive plan} is a sequence of actions---e.g., move from \emph{a} to \emph{b}---that ensure the satisfaction of the local mission for each robot. 
 A \emph{possible plan} is a sequence of actions that may satisfy the local mission due to some unknown information about the model of the robots or the environment in which they are deployed. 
 If \toolName\ is not able to find neither a definitive nor a possible plan a message is sent to the user (\circled{6}).
-Otherwise, an appropriate component is used to choose between definitive and possible plans (if both are present) or simply chooses the possible plan if no definitive plan is present.
+Otherwise, an appropriate component is used to choose between definitive and possible plans (if both are present) or simply to choose the possible plan if no definitive plan is present.
 Definitive plans are not present when the only way to satisfy the local mission is based on some unknown information about the model of the robots or the environment in which they are deployed. 
 \toolName\ then executes the selected plan (\circled{7}).
 
@@ -37,7 +37,7 @@ The proposed models embed partial knowledge as follows:\\
 %\textbf{Uncertainties supported by \toolName}.
 $\bullet$  \emph{Partial knowledge about the actions execution.} 
 The execution of certain actions is uncertain, meaning that it is unclear whether an action can be executed.
-This type of partial knowledge allows specifying that the transition between two of the cells that conform the grid map of the environment (see Fig.~\ref{fig:outputexample}) can be:
+This type of partial knowledge allows specifying that the transition between two of the cells that conform the grid map of the environment (see Fig.~\ref{fig:runningexample}) can be:
 always possible, always impossible (i.e. a wall), not known (i.e. a door between two rooms that can be open or closed).\\
 $\bullet$ \emph{Unknown service provisioning.} 
 It is unclear  whether a service---i.e.,  ``events of interest associated with execution of certain actions rather than over atomic propositions''~\cite{guo2015multi}---can be provided or not in a specific location. 

@@ -1,5 +1,5 @@
 
-\toolName\  was developed as a  MATLAB~\cite{matlab} standalone application.
+\toolName\ is developed as a  MATLAB~\cite{matlab} standalone application.
 It is developed on top of an existing planner---presented in~\cite{tumova2016multi}---which has been chosen since it already implements a decentralized planning procedure.
 \toolName\ calls this planner twice considering two different versions of the model of the robots and their environments. 
 The results obtained by performing this procedure are sound and correct.
@@ -28,6 +28,29 @@ mapmaker_exp('Scenario', 'Experiment', 'Location')
 
 
 
+\begin{figure}[htp]
+	\vspace{-.5cm}
+	\begin{center}
+		{\footnotesize
+			\subfloat{
+				\includegraphics[width=.8\linewidth]{Figures/rose.png}
+				\label{fig:outputexample}
+			}
+			\vspace{.01cm}
+			\subfloat{%
+				\fbox{
+					\parbox{0.95\linewidth}{
+						\small $\phi_1=\Always (\Event ($\emph{help\_grasping}$))$:  $r_1$ periodically helps $r2$ with grasping (service \emph{help\_grasping} associated with action 1). \\
+						$\phi_2=\Always (\Event($\emph{fetch\_supplies}$\wedge \Event ($\emph{deliver}$)))$: $r_2$ repeatedly fetches supplies (service \emph{fetch\_supplies}, action 2) and delivers them (service \emph{deliver}, action 3).\\
+						$\phi_3=\Always ( \Event ($\emph{take\_snapshot}$\wedge \Event ($\emph{send\_info}$)))$: $r_3$ repeatedly takes pictures (service \emph{take\_snapshot}, action 4) and sends them using the communication network (service  \emph{send\_info}, action 5). 
+					}
+				}
+		}}
+		\caption{\toolName\ usage scenario.}
+		\label{fig:runningexample} 
+		\vspace{.2cm}
+	\end{center}
+\end{figure}
 
 
 %In a normal case where the scenarios are already defined, the only components of the architecture depicted in~\ref{fig:overview} that are used are the \emph{Replication Package}, the \emph{Robot \& Environment models with uncertainty}, the \emph{Planner} itself and its inputs and, of course, the \emph{Solutions container}.
@@ -87,27 +110,6 @@ Finally, P3 is a definitive plan, which substitutes the location of service \emp
 %When all the robots have reached their goals or they realized that their local mission is not feasible the experiments concludes.
 %Once the experiment is concluded, the data extracted (as explained in~\ref{sec:approach}) is stored in the solutions container component.
 
-\begin{figure}[htp]
-	\vspace{-.15cm}
-	\begin{center}
-		\subfloat{
-			\includegraphics[width=1\linewidth]{Figures/rose.png}
-			\label{fig:outputexample}
-		}
-		\vspace{.01cm}
-		\subfloat{%
-			 \fbox{
-				\parbox{0.95\linewidth}{
-					$\phi_1=\Always (\Event ($\emph{help\_grasping}$))$:  $r_1$ periodically helps $r2$ with grasping (service \emph{help\_grasping} associated with action 1). \\
-					$\phi_2=\Always (\Event($\emph{fetch\_supplies}$\wedge \Event ($\emph{deliver}$)))$: $r_2$ fetches heavy supplies (service \emph{fetch\_supplies}, action 2) and delivers them (service \emph{deliver}, action 3).\\
-					$\phi_3=\Always ( \Event ($\emph{take\_snapshot}$\wedge \Event ($\emph{send\_info}$)))$: $r_3$ repeatedly takes pictures (service \emph{take\_snapshot}, action 4) and sends them using the communication network (service  \emph{send\_info}, action 5). 
-				}
-			}
-		}
-		\caption{\toolName\ usage scenario.}
-		\label{fig:runningexample} 
-	\end{center}
-\end{figure}
 
 
 %\begin{figure}[t]
