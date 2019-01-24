@@ -29,7 +29,7 @@ mapmaker_exp('Scenario', 'Experiment', 'Location')
 
 
 \begin{figure}[htp]
-	\vspace{-.5cm}
+	\vspace{-.7cm}
 	\begin{center}
 		{\footnotesize
 			\subfloat{
@@ -57,22 +57,23 @@ mapmaker_exp('Scenario', 'Experiment', 'Location')
 %The first component represents a folder where the models of the robot and environment with a certain added uncertainty for the selected experiment are stored.
 
 When  \toolName\ is executed, a graphical interface similar to the one presented  in Fig.~\ref{fig:runningexample} is showed.
-The figure is a screenshot showing the performance of our tool where we changed the size of some numbers, added the plans, and labeled the right-side cells  for helping the reader.
+The figure shows a screenshot of the MAPmaKER's performance where we changed the size of some numbers, added the plans, and labeled the some cells for helping the reader.
 The grid represents the environment in which the robots are moving.
 Each cell represents a location of the environment and has a number associated. %, as labeled in some of them.
 Robots are represented by squared colored boxes.
-Actions are used to encode movements (i.e., each robot can move left, right, up, and down) and skills of the robots (i.e. labeled actions from 1 to 5).
+Actions are used to encode movements %(i.e., each robot can move left, right, up, and down) 
+and skills of the robots (i.e. labeled actions from 1 to 5).
 A robot  cannot move between adjacent cells if they are separated by thick bordered lines.
 Whenever  it is unclear if a robot can move between adjacent cells, these cells are separated by a red border.
 %Each service is associated with a number.
-Whenever a service can be provided by a robot in a cell, the cell is labeled with the associated action and the color of the corresponding robot.
-Finally, synchronization capabilities are represented by a black cross.
+Whenever a service can be provided by a robot in a cell, the cell is labeled with the associated action and the color of the corresponding robot (a question mark precedes the action number if the provision is unclear).
+Synchronization capabilities are represented by a black cross.
 If it is unclear if two robots can synchronize in a cell, the cell is labeled with a green cross.
 
 The graphical interface shows the plan execution.
 Assume that the robots $r_1$, $r_2$, and $r_3$ have the \emph{local missions} defined in Fig.~\ref{fig:runningexample}.
 In a  hospital environment, $r_1$ is a dexterous mobile manipulator that aims at helping $r_2$, a heavy-duty mobile manipulator, with grasping certain medical supplies.
-It means $r_1$ and $r_2$ must meet in cells where service \emph{fetch\_supplies} is provided.
+It means that $r_1$ and $r_2$ must meet in cells where service \emph{fetch\_supplies} is provided.
 Once these supplies are grasped, $r_2$ brings them to the surgery table in the middle of the room.
 In the meanwhile, $r_3$ takes pictures of the table and send them using the communication network.
 
@@ -84,8 +85,8 @@ In the meanwhile, $r_3$ takes pictures of the table and send them using the comm
 
 The same figure also shows different plans that can be performed by the robots, accomplishing a number of actions in a periodic fashion.
 Every robot can perform different plans, but only some of them are showed to improve readability.
-P1' represents a possible plan where  true evidence was detected by the robot (in actions execution, service provisioning, and meeting capabilities), reaching the cell to accomplish service \emph{help\_grasping}, action 1 and meet with $r_2$.
-For robot $r_2$ we show two different paths.
+P1' represents a possible plan where  true evidence was detected by the robot (in actions execution, service provisioning, and meeting capabilities), reaching the cell to accomplish service \emph{help\_grasping} (action 1) and meet with $r_2$.
+%For robot $r_2$ we show two different paths.
 P2 is a definitive plan,  where $r_2$ must synchronize with $r_1$ to accomplish service \emph{fetch\_supplies}.
 P2 represents a possible plan (same uncertainty seen in P1') that performs similar actions to P2 but in another room.
 P3 represents a possible path where robot $r_3$ accomplishes action 4 in cell 11 and action 5 in cell 6.
