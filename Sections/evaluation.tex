@@ -1,14 +1,16 @@
 
 
-To evaluate  \toolName\ we considered the following research question,
+To evaluate  \toolName\ we formulate a research question,
 \textbf{RQ1}: Is MAPmAKER able to perform planning in partially known environments?
 %\textbf{RQ1}: How does MAPmAKER help planning in partially known environments? \textbf{RQ2}: How does the employed decentralized algorithm help in plan computation?
 %The full evaluation might be found in~\cite{menghi2018multi}. 
-To answer it we  had considered the simulated scenario introduced in Sec.~\ref{sec:tool}.
+To answer it, we  had considered the simulated scenario introduced in Sec.~\ref{sec:tool}.
 We created a partial robot application starting from the models of the robots and their environment.
 We then introduced uncertainty in the three considered dimensions introduced in Sec.~\ref{sec:approach}.
 Examples of such uncertainties are whether the system has certain knowledge about the transition through doors (e.g., the one between cells 37 and 38 in Fig.~\ref{fig:runningexample}) or about the provision of services (e.g., \emph{deliver} at cells 24 and 26).
-The process of introducing uncertainty in the models was randomized.
+We introduced uncertainty through a random process and created three different scenario configurations based on the same scenario.
+We also randomized the initial position of each robot, creating three different sets of initial configurations.
+The nine experiments we performed to validate \toolName~consist of the nine possible combination of the scenario and initial configurations.
 
 The results show that \toolName~is able to compute plans in situations where traditional planners cannot. 
 Furthermore, it also improves the performance in terms of plan length in many situations since it may consider more planning options.
