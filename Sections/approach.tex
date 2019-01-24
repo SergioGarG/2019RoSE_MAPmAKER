@@ -30,7 +30,7 @@ The function encodes the number of actions the robot must perform, whether it is
 The environment is defined as a grid where transitions between its conforming cells may or may not be possible.
 This information is encoded in the environment model (e.g., \texttt{RealEnvironmentMap.m}).
 However, there is always another model of the environment containing partial information (some transitions are now uncertain).
-For more technical details, the interested reader can refer to the provided repository.
+For more technical details, the interested reader can refer to the provided repository~\cite{repo}.
 
 
 The proposed models embed partial knowledge as follows:\\
@@ -40,8 +40,8 @@ The execution of certain actions is uncertain, meaning that it is unclear whethe
 This type of partial knowledge allows specifying that the transition between two of the cells that conform the grid map of the environment (see Fig.~\ref{fig:runningexample}) can be:
 always possible, always impossible (i.e. a wall), not known (i.e. a door between two rooms that can be open or closed).\\
 $\bullet$ \emph{Unknown service provisioning.} 
-It is unclear  whether a service---i.e.,  ``events of interest associated with execution of certain actions rather than over atomic propositions''~\cite{guo2015multi}---can be provided or not in a specific location. 
-For example, it is unclear whether a robot can take a picture of an item in a given map location.
+It is unclear  whether a service---i.e.,  ``events of interest associated with execution of certain actions rather than over atomic propositions''~\cite{guo2015multi}---can be provided in a specific location. 
+For example, it is unclear whether a robot can take a picture in a given map location.
 This  uncertainty may be caused for example by the presence of an unexpected object that covers the robot visual in that location.\\
 $\bullet$ \emph{Unknown meeting capabilities.} Robots can meet and synchronize in certain locations.
 For example, it is unclear whether two robots can exchange a load in a given map location.

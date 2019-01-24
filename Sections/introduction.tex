@@ -8,17 +8,17 @@ Recent works in robotics have defined robot applications using finite transition
 
 Current robotic applications require planners to address two main challenges: 
 \begin{enumerate*}
-\item the planning problem should be solved by using algorithms that make the problem tractable; \claudio{I am just a bit concern about the term Tractability since Mapmaker does not make the problem tractable.
-I suggest to remove it and just focus on decentralization.}
-\item the planning algorithm should work also when (only) partial knowledge about the system---including the robots and their working environment---is present.
+%\claudio{I am just a bit concern about the term Tractability since Mapmaker does not make the problem tractable. I suggest to remove it and just focus on decentralization.}
+\item the planning algorithm should work when (only) partial knowledge about the system---including the robots and their working environment---is present;
+\item the planning problem should be solved by decentralized algorithms that helps to reduce the planning overhead.
 \end{enumerate*}
 
 
 %\sergio{in the following paragraphs I cite several works to speak trying to give some background but also related work. Is it enough?}
 
-Tractability refers to the capability of computer algorithms in solving problems. \claudio{I suggest to delete the previous sentence}
+%Tractability refers to the capability of computer algorithms in solving problems. \claudio{I suggest to delete the previous sentence}
 Several works studied centralized planners that are able to manage \emph{teams} of robots that collaborate to achieve a certain goal (a global mission)~\cite{kloetzer2011multi,loizou2005automated,quottrup2004multi}.
-However, planning is computationally expensive, especially when the number of robots within the team is increased and they need to collaborate to fulfill their local missions.
+However, planning is computationally expensive, especially when the number of robots within the team is large \patrizio{do we have a measure for the size when the problem is becoming difficult with existing planners?} and they need to collaborate to fulfill their local missions.
 For this reason, research interest had focused on decomposing a global mission into a set of local missions to be achieved by each robot of the team~\cite{schillinger2016decomposition,guo2015multi,tumova2016multi}. 
 These local missions have been recently exploited by \emph{decentralized} planners~\cite{tumova2016multi}, i.e., planners that instead of evaluating the global mission over the whole team of robots, analyze the satisfaction of local missions inside a subset of the team of robots. 
 In this way, the problem of finding a collective team behavior is decomposed into sub-problems that avoid the expensive fully centralized planning. 
@@ -63,7 +63,7 @@ In this paper we present the implementation of \toolName and we show how planner
 \item a set of videos showing \toolName\ in action computing and solving the scenario presented at the previous bullet, and
 \item a brief user guide that defines the functionalities provided by our tool
 \end{enumerate*}
- are available at ~\url{https://github.com/claudiomenghi/MAPmAKER/}. 
+ are available at our Github repository~\cite{repo}. %~\url{https://github.com/claudiomenghi/MAPmAKER/}. 
 
 %This paper is organized as follows. 
 %Section~\ref{sec:approach} presents an overview of \toolName.
