@@ -244,9 +244,9 @@
 		They usually rely on planners that given a robot or a team of robots compute plans that specify how the robot(s) can fulfill their missions.
 		Current robot applications ask for planners that make automated planning \emph{tractable}
 		\claudio{To me maybe we can relax the term tractable, because our planner does not make the problem tractable..
-		there are planners that work much better than ours. I would say only that work in a decentralized fashion.}  and possible even when only \emph{partial knowledge} about the robot application is present, e.g., some information about the environment in which the robots are deployed is missing.
-		To tackle such challenges we developed \toolName, a proof of concepts application  that provides a decentralized planning solution  and  is able to work when only partial knowledge of the environment is present.
-		Decentralization is realized by decomposing the robotic team into subclasses based on their missions, and then by running a classical planning algorithm.
+		there are planners that work much better than ours. I would say only that work in a decentralized fashion.}  and possible even when only \emph{partial knowledge} \chg{about the robot application is present, e.g., some information about the environment in which the robots are deployed is missing.}{about the environment in which the robots are deployed.}
+		To tackle such challenges we developed \toolName, \chg{a proof of concepts application  that}{which} provides a decentralized planning solution  and  is able to work \chg{when only partial knowledge of the environment is present}{in partially known environments}.
+		Decentralization is realized by decomposing the robotic team into \ugh{subclasses based on their missions}\patrizio{not so clear}, and then by running a classical planning algorithm.
 		Partial knowledge is handled by calling several times  a classical planning algorithm.
 		
 		Demo video available at: \url{https://youtu.be/TJzC_u2yfzQ}
@@ -273,7 +273,8 @@
 	\label{sec:conclusion}
 	\input{Sections/conclusions.tex}
 
-
+\section*{Acknowledgements}
+This work was supported by the EU H2020 Research and Innovation Programme under GA No. 731869 (Co4Robots).
 
 	\balance
 	\bibliographystyle{IEEEtran}

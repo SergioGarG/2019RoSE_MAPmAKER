@@ -18,7 +18,7 @@ I suggest to remove it and just focus on decentralization.}
 
 Tractability refers to the capability of computer algorithms in solving problems. \claudio{I suggest to delete the previous sentence}
 Several works studied centralized planners that are able to manage \emph{teams} of robots that collaborate to achieve a certain goal (a global mission)~\cite{kloetzer2011multi,loizou2005automated,quottrup2004multi}.
-However, planning is computationally expensive, especially when the number of robots within the team is increased and they need to collaborate to fulfill their local missions.
+However, planning is computationally expensive, especially when the number of robots within the team is \chg{increased}{large} \patrizio{do we have a measure for the size when the problem is becoming difficult with existing planners?} and they need to collaborate to fulfill their local missions.
 For this reason, research interest had focused on decomposing a global mission into a set of local missions to be achieved by each robot of the team~\cite{schillinger2016decomposition,guo2015multi,tumova2016multi}. 
 These local missions have been recently exploited by \emph{decentralized} planners~\cite{tumova2016multi}, i.e., planners that instead of evaluating the global mission over the whole team of robots, analyze the satisfaction of local missions inside a subset of the team of robots. 
 In this way, the problem of finding a collective team behavior is decomposed into sub-problems that avoid the expensive fully centralized planning. 
