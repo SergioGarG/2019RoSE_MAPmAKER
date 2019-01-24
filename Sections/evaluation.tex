@@ -1,21 +1,33 @@
 
 
-To evaluate  \toolName\ we considered the following research questions: \textbf{RQ1}: How does MAPmAKER help planning in partially known environments? \textbf{RQ2}: How does the employed decentralized algorithm help in plan computation?
-The full evaluation might be found in~\cite{menghi2018multi}. 
+To evaluate  \toolName\ we considered the following research question,
+\textbf{RQ1}: Is MAPmAKER able to perform planning in partially known environments?
+%\textbf{RQ1}: How does MAPmAKER help planning in partially known environments? \textbf{RQ2}: How does the employed decentralized algorithm help in plan computation?
+%The full evaluation might be found in~\cite{menghi2018multi}. 
+To answer it we  had considered the simulated scenario introduced in Sec.~\ref{sec:tool}.
+We created a partial robot application starting from the models of the robots and their environment.
+We then introduced uncertainty in the three considered dimensions introduced in Sec.~\ref{sec:approach}.
+Examples of such uncertainties are whether the system has certain knowledge about the transition through doors (e.g., the one between cells 37 and 38 in Fig.~\ref{fig:runningexample}) or about the provision of services (e.g., \emph{deliver} at cells 24 and 26).
+The process of introducing uncertainty in the models was randomized.
 
-To answer RQ1 we  had considered a set of existing examples:
-one obtained from the RoboCup Logistics League competition~\cite{karrasrobocup} and an apartment of a large residential facility for senior citizens~\cite{map}.
-We created a partial robot application starting from the models of the robots and their environment contained in these examples.
-We performed different experiments in which we evaluated the impact of partial information about the action execution, services provisioning and meeting capabilities on the planning procedure.
-We compare whether computing possible plans actually helps mission achievement.
+The results show that \toolName~is able to compute plans in situations where traditional planners cannot. 
+Furthermore, it also improves the performance in terms of plan length in many situations since it may consider more planning options.
+In the folder \texttt{ResultsPaperRoSE} we provide a set of videos showing the performance of \toolName~in these experiments.
+We also provide results, containing computation time, plan length, false and true evidences found by the robots, and ratio between the definitive and possible plans in terms of computation time and plan length.
+The evaluation of the underlying algorithms might be found in~\cite{menghi2018multi}. 
 
-To answer RQ2 we analyzed the advantages of the decentralized procedure provided by \toolName.
-We had considered the set of partial models considered in the previous experiments. 
-We added an additional robot, i.e., robot $r_3$, which has a mission that can be achieved without collaborating with neither  robot $r1$ nor with robot $r2$. 
-We then executed \toolName\ with the decentralized procedure enabled (computing two different dependency classes based on the collaboration among robots) and disabled (all the robots are part of the same dependency class). 
-Then, we compare each performance. 
-
-We performed three experiments for each scenario, each of them unique since the generator associates a random uncertainty and an initial position of the robotic team to each of them (by using the given \texttt{randomModelGenerator} function).
+%a set of existing examples: one obtained from the RoboCup Logistics League competition~\cite{karrasrobocup} and an apartment of a large residential facility for senior citizens~\cite{map}.
+%We created a partial robot application starting from the models of the robots and their environment contained in these examples.
+%We performed different experiments in which we evaluated the impact of partial information about the action execution, services provisioning and meeting capabilities on the planning procedure.
+%We compare whether computing possible plans actually helps mission achievement.
+%
+%To answer RQ2 we analyzed the advantages of the decentralized procedure provided by \toolName.
+%We had considered the set of partial models considered in the previous experiments. 
+%We added an additional robot, i.e., robot $r_3$, which has a mission that can be achieved without collaborating with neither  robot $r1$ nor with robot $r2$. 
+%We then executed \toolName\ with the decentralized procedure enabled (computing two different dependency classes based on the collaboration among robots) and disabled (all the robots are part of the same dependency class). 
+%Then, we compare each performance. 
+%
+%We performed three experiments for each scenario, each of them unique since the generator associates a random uncertainty and an initial position of the robotic team to each of them (by using the given \texttt{randomModelGenerator} function).
 
 %To answer RQ1 we  had considered a set of existing examples:
 %one obtained from the RoboCup Logistics League competition~\cite{karrasrobocup} and an apartment of a large residential facility for senior citizens~\cite{map}.
