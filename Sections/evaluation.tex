@@ -7,9 +7,14 @@ To answer RQ1 we  had considered a set of existing examples:
 one obtained from the RoboCup Logistics League competition~\cite{karrasrobocup} and an apartment of a large residential facility for senior citizens~\cite{map}.
 We created a partial robot application starting from the models of the robots and their environment contained in these examples.
 We performed different experiments in which we evaluated the impact of partial information about the action execution, services provisioning and meeting capabilities on the planning procedure.
+\claudio{The experiments showed that computing possible plans actually helps mission achievement.}
 We compare whether computing possible plans actually helps mission achievement.
 
 To answer RQ2 we analyzed the advantages of the decentralized procedure provided by \toolName.
+\claudio{We had compared the performance of using \toolName\ with an without enabling the decentralized procedure.
+The results show that the decentralized algorithm actually helps in improving performances.}
+
+\claudio{I suggest to remove what follows.}
 We had considered the set of partial models considered in the previous experiments. 
 We added an additional robot, i.e., robot $r_3$, which has a mission that can be achieved without collaborating with neither  robot $r1$ nor with robot $r2$. 
 We then executed \toolName\ with the decentralized procedure enabled (computing two different dependency classes based on the collaboration among robots) and disabled (all the robots are part of the same dependency class). 
