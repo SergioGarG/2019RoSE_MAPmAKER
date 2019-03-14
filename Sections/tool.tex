@@ -5,6 +5,10 @@ It is developed on top of an existing planner---presented in~\cite{tumova2016mul
 The results obtained by performing this procedure are sound and correct.
 Additional details and proofs can be found in~\cite{menghi2018multi}.
 
+\begin{lstlisting}[frame=single, backgroundcolor=\color{light-gray}, basicstyle=\footnotesize\ttfamily, language=Java, numbers=left, numberstyle=\tiny\color{black},caption= {Running \toolName}\label{lst:command}, captionpos=b]
+mapmakerRunner(robots, environment , missions);
+mapmaker_exp('Scenario', 'Experiment', 'Location')
+\end{lstlisting}
 
 \toolName\ can be executed in two ways, as shown in Listing~1. %\ref{lst:command}.
 The first option is used to compute plans for custom models of mission, environment, and robots.
@@ -18,10 +22,7 @@ With the second option, we provide a way of replicating the experiments presente
 
 
 
-\begin{lstlisting}[frame=single, backgroundcolor=\color{light-gray}, basicstyle=\footnotesize\ttfamily, language=Java, numbers=left, numberstyle=\tiny\color{black},caption= {Running \toolName}\label{lst:command}, captionpos=b]
-mapmakerRunner(robots, environment , missions);
-mapmaker_exp('Scenario', 'Experiment', 'Location')
-\end{lstlisting}
+
 
 %The tool is composed by several MATLAB-based scripts that can be executed independently for performing certain functions.
 %In order to use \toolName it is sufficient to launch the function \emph{mapmaker\_exp} where the \emph{research question}, the \emph{example} or map of the environment and the \emph{experiment} to check are their arguments.
@@ -29,8 +30,8 @@ mapmaker_exp('Scenario', 'Experiment', 'Location')
 
 
 
-\begin{figure}[htp]
-	\vspace{-.7cm}
+\begin{figure}[hb]
+	%\vspace{-.7cm}
 	\begin{center}
 		{\footnotesize
 			\subfloat{
