@@ -7,13 +7,14 @@ Additional details and proofs can be found in~\cite{menghi2018multi}.
 
 
 \toolName\ can be executed in two ways, as shown in Listing~1. %\ref{lst:command}.
-The first option is used to compute plans for custom missions in custom models of environment and robots.
+The first option is used to compute plans for custom models of mission, environment, and robots.
 \texttt{robots} is a variable that specifies the number of robots and their models.
-Then, \texttt{environment} is a variable that contains a model of the environment and its uncertainty.
-Finally, \texttt{missions} contains the local mission to be achieved by each robot.
+\texttt{environment} is a model of the environment and its uncertainty.
+\texttt{missions} contains the local mission to be achieved by each robot.
 With the second option, we provide a way of replicating the experiments presented in this paper and in~\cite{menghi2018multi}.
-\texttt{Scenario} is a Matlab file containing the model of the environment and the robots and \texttt{Experiment} encodes the mission that must be satisfied by each robot.
-Then, \texttt{Location} defines where the experiments are allocated---i.e., RQ1, RQ2, or RunningExample.
+\texttt{Scenario} is a \texttt{.m} file containing the model of the environment and the robots.
+\texttt{Experiment} encodes each robot's mission.
+\texttt{Location} defines where the experiments are allocated---i.e., RQ1, RQ2, or RunningExample.
 
 
 
@@ -56,19 +57,19 @@ mapmaker_exp('Scenario', 'Experiment', 'Location')
 %In a normal case where the scenarios are already defined, the only components of the architecture depicted in~\ref{fig:overview} that are used are the \emph{Replication Package}, the \emph{Robot \& Environment models with uncertainty}, the \emph{Planner} itself and its inputs and, of course, the \emph{Solutions container}.
 %The first component represents a folder where the models of the robot and environment with a certain added uncertainty for the selected experiment are stored.
 
-When  \toolName\ is executed, a graphical interface similar to the one presented  in Fig.~\ref{fig:runningexample} is showed.
-The figure shows a screenshot of the MAPmAKER's performance where we changed the size of some numbers, added the plans, and labeled some cells for helping the reader.
-The grid represents the environment in which the robots are moving.
+\toolName\ shows a graphical interface as the one presented  in Fig.~\ref{fig:runningexample} when executed.
+Fig.~\ref{fig:runningexample}  is a screenshot of  MAPmAKER's performance where we changed the size of some numbers, added  plans, and labeled some cells.
+The grid represents the environment in which the robots move.
 Each cell represents a location of the environment and has a number associated. %, as labeled in some of them.
-Robots are represented by squared colored boxes.
+Robots are represented by colored squares.
 Actions are used to encode movements %(i.e., each robot can move left, right, up, and down) 
 and skills of the robots (i.e. labeled actions from 1 to 5).
 A robot  cannot move between adjacent cells if they are separated by thick bordered lines.
 Whenever  it is unclear if a robot can move between adjacent cells, these cells are separated by a red border.
 %Each service is associated with a number.
 Whenever a service can be provided by a robot in a cell, the cell is labeled with the associated action and the color of the corresponding robot (a question mark precedes the action number if the provision is unclear).
-Synchronization capabilities are represented by a black cross.
-If it is unclear if two robots can synchronize in a cell, the cell is labeled with a green cross.
+Synchronization capabilities are represented by a black cross (which becomes green if is unclear whether two robots can synchronize in a cell).
+%If it is unclear if two robots can synchronize in a cell, the cell is labeled with a green cross.
 
 The graphical interface shows the plan execution.
 Assume that the robots $r_1$, $r_2$, and $r_3$ have the \emph{local missions} defined in Fig.~\ref{fig:runningexample}.
@@ -90,7 +91,7 @@ P1' represents a possible plan where  true evidence was detected by the robot (i
 P2 is a definitive plan,  where $r_2$ must synchronize with $r_1$ to accomplish service \emph{fetch\_supplies}.
 P2' represents a possible plan (same uncertainty seen in P1') that performs similar actions to P2 but in another room.
 P3' represents a possible path where robot $r_3$ accomplishes action 4 in cell 11 and action 5 in cell 6.
-Finally, P3 is a definitive plan, which substitutes the location of service \emph{take\_snapshot} from 11 to 39.
+Finally, P3 is a definitive plan, which substitutes the location of service \emph{take\_snapshot} from cell 11 to cell 39.
 
 %\sergio{use something like this in the previous paragraph}
 %The following missions were considered:
