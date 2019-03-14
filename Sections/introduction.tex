@@ -2,15 +2,14 @@ Robotic applications usually rely on a set of robots that are used to perform mi
 The term mission can refer to a \emph{global mission}, i.e., the high-level mission that must be accomplished by the whole team~\cite{quottrup2004multi} or a \emph{local mission}, i.e., the mission that should be achieved by a single robot, possibly by collaborating with other robots~\cite{tumova2016multi}.
 %Every robot is commanded to achieve a local mission, specified as a LTL property.
 Planners are one of the main ingredients that allow robots to achieve  missions.
-A \emph{planner} is  a software component that receives as input a model of the robotic application and computes  a set of actions---a \emph{plan}---that, if performed, allows the achievement of a desired mission~\cite{latombe2012robot}.
-Recent works in robotics have defined robot applications using finite transition systems and some of them define their local missions as a Linear-time Temporal Logic (LTL) property (e.g., \cite{menghi2018multi,guo2015multi,tumova2016multi}).
-%\del{LTL enables the enrichment of the specification of temporal goals that are used as input for planners.}
-
+A \emph{planner} is  a software component that receives as input a model of the robotic application and computes  a set of actions---a \emph{plan}---that, if performed, allow the achievement of a desired mission~\cite{latombe2012robot}.
+Recent works in robotics have defined robot applications using finite transition systems and some of them define their local missions as a Linear-time Temporal Logic (LTL) property (e.g., \cite{menghi2018multi,guo2015multi,tumova2016multi,Patterns2018}). 
+%\del{LTL enables the enrichment of the specification of temporal goals that are used as input for planners.} 
 Current robotic applications require planners to address two main challenges: 
 \begin{enumerate*}
 %\claudio{I am just a bit concern about the term Tractability since Mapmaker does not make the problem tractable. I suggest to remove it and just focus on decentralization.}
 \item the planning algorithm should work when (only) partial knowledge about the system---including the robots and their working environment---is present;
-\item the planning problem should be solved by decentralized algorithms that helps to reduce the planning overhead.
+\item the planning problem should be solved by decentralized algorithms that help to reduce the planning overhead.
 \end{enumerate*}
 
 
@@ -18,7 +17,7 @@ Current robotic applications require planners to address two main challenges:
 
 %Tractability refers to the capability of computer algorithms in solving problems. \claudio{I suggest to delete the previous sentence}
 Several works studied centralized planners that are able to manage \emph{teams} of robots that collaborate to achieve a certain goal (a global mission)~\cite{kloetzer2011multi,quottrup2004multi}.
-However, this methodology planning is computationally expensive, especially when the number of robots within the team increases % \patrizio{do we have a measure for the size when the problem is becoming difficult with existing planners?} 
+However, planning is computationally expensive, especially when the number of robots within the team increases % \patrizio{do we have a measure for the size when the problem is becoming difficult with existing planners?} 
 and they need to collaborate to fulfill their local missions.
 For this reason, research interest had focused on decomposing a global mission into a set of local missions to be achieved by each robot of the team~\cite{schillinger2016decomposition,guo2015multi,tumova2016multi}. 
 These local missions have been recently exploited by \emph{decentralized} planners~\cite{tumova2016multi}, i.e., planners that instead of evaluating the global mission over the whole team of robots, analyze the satisfaction of local missions inside a subset of the team of robots. 
@@ -53,8 +52,8 @@ This work presents  \toolName: a Multi-robot plAnner for PArtially Known EnviRon
 %\toolName\ modifies~\cite{tumova2016multi} by supporting partial knowledge.
 Decentralization is realized by decomposing the robotic team into subteams based on their missions, and then by running a classical planning algorithm.
 Partial knowledge is handled by calling twice a classical planning algorithm.
-The theory that supports \toolName\ including proofs of correctness, a detailed description of the modelling formalisms and the verification procedures can be found in~\cite{menghi2018multi}.
-In this paper we present the implementation of \toolName, the components that compound it, the models it uses, how it can be used, and  show how planners can deal with the previously stated features. 
+The theory that supports \toolName\ including proofs of correctness, a detailed description of the modelling formalisms, and the verification procedures can be found in~\cite{menghi2018multi}.
+In this paper we present the implementation of \toolName, the components that compound it,  the models it uses, and how it can be used. %, and  show how planners can deal with the previously stated features. 
 We also provide a demonstration video to illustrate such concepts.
 In this sense, the contribution is more a proof of concept than a tool ready to be used for real-world scenarios.
 \toolName~builds upon the planner proposed by Tumova et al.~\cite{tumova2016multi} and

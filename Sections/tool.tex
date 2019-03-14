@@ -33,7 +33,7 @@ With the second option, we provide a way of replicating the experiments presente
 \begin{figure}[hb]
 	%\vspace{-.7cm}
 	\begin{center}
-		{\footnotesize
+		{\tiny
 			\subfloat{
 				\includegraphics[width=.8\linewidth]{Figures/rose.png}
 				\label{fig:outputexample}
@@ -72,12 +72,12 @@ Whenever a service can be provided by a robot in a cell, the cell is labeled wit
 Synchronization capabilities are represented by a black cross (which becomes green if is unclear whether two robots can synchronize in a cell).
 %If it is unclear if two robots can synchronize in a cell, the cell is labeled with a green cross.
 
-The graphical interface shows the plan execution.
+%The graphical interface shows the plan execution.
 Assume that the robots $r_1$, $r_2$, and $r_3$ have the \emph{local missions} defined in Fig.~\ref{fig:runningexample}.
 In a  hospital environment, $r_1$ is a dexterous mobile manipulator that aims at helping $r_2$, a heavy-duty mobile manipulator, with grasping certain medical supplies.
 It means that $r_1$ and $r_2$ must meet in cells where service \emph{fetch\_supplies} is provided.
 Once these supplies are grasped, $r_2$ brings them to the surgery table in the middle of the room.
-In the meanwhile, $r_3$ takes pictures of the table and send them using the communication network.
+In the meanwhile, $r_3$ takes pictures of the table and sends them using the communication network.
 
 %Robot $r_1$ has to perform service 1, which is provided in cells 7 and 9.
 %Service 1 and service 2 (which has to be accomplished by robot $r_2$) are located in a cell labeled with a cross, so robots must meet there and perform both actions at the same time.
